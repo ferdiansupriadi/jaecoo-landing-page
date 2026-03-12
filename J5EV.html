@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAECOO J5 EV | Pure Electric SUV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: #000;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a4d2e 0%, #0a2f1f 50%, #000 100%);
+        }
+        
+        .nav-scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 100;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .lang-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: black;
+        }
+        
+        .lang-btn:not(.active) {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .floating-contact {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
+        
+        .pulse-ring {
+            position: absolute;
+            border: 3px solid #25D366;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            animation: pulse 2s ease-out infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    
+    <div class="floating-contact">
+        <a href="https://wa.me/6281804110901?text=Halo%20JAECOO,%20saya%20tertarik%20dengan%20JAECOO%205%20EV" target="_blank" class="contact-btn whatsapp-btn">
+            <div class="pulse-ring"></div>
+            <i class="fab fa-whatsapp text-white text-2xl"></i>
+        </a>
+    </div>
+    
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <img src="jaecoo1.webp" alt="Logo" class="h-8">
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-gray-300 transition" data-en="Home" data-id="Beranda">Beranda</a>
+                    <a href="index.html#models" class="hover:text-gray-300 transition" data-en="Models" data-id="Model">Model</a>
+                    <a href="#specs" class="hover:text-gray-300 transition" data-en="Specifications" data-id="Spesifikasi">Spesifikasi</a>
+                    <a href="#features" class="hover:text-gray-300 transition" data-en="Features" data-id="Fitur">Fitur</a>
+                    <a href="#contact" class="hover:text-gray-300 transition" data-en="Contact" data-id="Kontak">Kontak</a>
+                    <div class="flex space-x-2">
+                        <button id="lang-en" class="lang-btn px-3 py-1 rounded text-xs transition">EN</button>
+                        <button id="lang-id" class="lang-btn px-3 py-1 rounded text-xs active transition">ID</button>
+                    </div>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-black shadow-2xl md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end mb-8">
+                    <button id="close-menu" class="text-white focus:outline-none">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-6 text-lg">
+                    <a href="index.html" class="hover:text-green-500 transition" data-en="Home" data-id="Beranda">Beranda</a>
+                    <a href="index.html#models" class="hover:text-green-500 transition" data-en="Models" data-id="Model">Model</a>
+                    <a href="#specs" class="hover:text-green-500 transition" data-en="Specifications" data-id="Spesifikasi">Spesifikasi</a>
+                    <a href="#features" class="hover:text-green-500 transition" data-en="Features" data-id="Fitur">Fitur</a>
+                    <a href="#contact" class="hover:text-green-500 transition" data-en="Contact" data-id="Kontak">Kontak</a>
+                    <div class="flex space-x-4 pt-4 border-t border-gray-800">
+                        <button id="mobile-lang-en" class="lang-btn px-4 py-2 rounded text-sm transition">EN</button>
+                        <button id="mobile-lang-id" class="lang-btn px-4 py-2 rounded text-sm active transition">ID</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile menu logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+
+        // Language switcher logic
+        let currentLang = 'id';
+        const langBtns = document.querySelectorAll('#lang-en, #lang-id, #mobile-lang-en, #mobile-lang-id');
+        
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => {
+                el.textContent = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+            });
+            
+            // Update active state of buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if(btn.id.includes(lang)) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.id.includes('en') ? 'en' : 'id';
+                updateLanguage(lang);
+                if (btn.id.includes('mobile')) mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-black md:hidden">
+            <div class="p-6">
+                <button id="close-menu" class="text-white mb-8">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="https://wa.me/62818110901?text=Halo%20JAECOO,%20saya%20ingin%20test%20drive%20JAECOO%205%20EV" target="_blank" class="bg-green-500 text-white px-10 py-4 rounded-full font-semibold hover:bg-green-600 transition text-lg" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
+                <a href="tel:+6281234567890" class="border-2 border-white px-10 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition text-lg" data-en="Call Now" data-id="Hubungi Sekarang">Hubungi Sekarang</a>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="text-green-400 mb-2">
+                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" data-en="Visit Our Showroom" data-id="Kunjungi Showroom Kami">Kunjungi Showroom Kami</h3>
+                    <p class="text-gray-400 text-sm">Jl. Gatot Subroto No. 123<br>Jakarta Selatan 12345</p>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="text-green-400 mb-2">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" data-en="Call Us" data-id="Hubungi Kami">Hubungi Kami</h3>
+                    <p class="text-gray-400 text-sm">+62 21 1234 5678<br>+62 812 3456 7890</p>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-xl">
+                    <div class="text-green-400 mb-2">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold mb-2" data-en="Opening Hours" data-id="Jam Buka">Jam Buka</h3>
+                    <p class="text-gray-400 text-sm">Sen - Jum: 09:00 - 18:00<br>Sab - Min: 10:00 - 17:00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4" data-en="Choose Your Package" data-id="Pilih Paket Anda">Pilih Paket Anda</h2>
+            <p class="text-center text-gray-400 mb-16" data-en="Flexible options to suit your needs" data-id="Opsi fleksibel sesuai kebutuhan Anda">Opsi fleksibel sesuai kebutuhan Anda</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-xl p-8 border-2 border-gray-700 hover:border-green-500 transition">
+                    <h3 class="text-2xl font-bold mb-4" data-en="Standard" data-id="Standar">Standar</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">Rp 249,9 Juta</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="60,9 kWh Battery" data-id="Baterai 65 kWh">Baterai 60,9 kWh</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="500 km Range" data-id="Jarak 500 km">Jarak 490 km</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Basic Safety Features" data-id="Fitur Keselamatan Dasar">Fitur Keselamatan Dasar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="15.6-inch Display" data-id="Layar 15,6 inci">Layar 13,6 inci</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Cloth Seats" data-id="Kursi Kain">Semi Leather</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-gray-700 text-white py-3 rounded-full font-semibold hover:bg-gray-600 transition" data-en="Learn More" data-id="Pelajari Lebih Lanjut">Pelajari Lebih Lanjut</a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-900 to-gray-800 rounded-xl p-8 border-2 border-green-500 relative transform scale-105">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white px-4 py-1 rounded-bl-xl rounded-tr-xl text-sm font-bold" data-en="POPULAR" data-id="POPULER">POPULER</div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Premium" data-id="Premium">Premium</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">Rp 289,9 Juta</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="65 kWh Battery" data-id="Baterai 65 kWh">Baterai 60,9 kWh</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="500 km Range" data-id="Jarak 500 km">Jarak 490 km</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Advanced Safety Suite" data-id="Sistem Keselamatan Canggih">Sistem Keselamatan Canggih</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="15.6-inch Display" data-id="Layar 15,6 inci">Layar 13,6 inci</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Leather Seats" data-id="Kursi Kulit">Kursi Semi Kulit</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="360° Camera" data-id="Kamera 360°">Kamera 560°</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Panoramic Sunroof" data-id="Sunroof Panoramik">Sunroof Panoramik</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-green-500 text-white py-3 rounded-full font-semibold hover:bg-green-600 transition" data-en="Book Now" data-id="Pesan Sekarang">Pesan Sekarang</a>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl p-8 border-2 border-gray-700 hover:border-green-500 transition">
+                    <h3 class="text-2xl font-bold mb-4" data-en="Signature" data-id="Signature">Signature</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">Rp 329,9 Juta</span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="65 kWh Battery" data-id="Baterai 65 kWh">Baterai 65 kWh</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="500 km Range" data-id="Jarak 500 km">Jarak 500 km</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="All Premium Features" data-id="Semua Fitur Premium">Semua Fitur Premium</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Premium Sound System" data-id="Sistem Audio Premium">Sistem Audio Premium</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Heated & Ventilated Seats" data-id="Kursi Berpemanas & Berpendingin">Kursi Berpemanas & Berpendingin</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Ambient Lighting" data-id="Lampu Ambient">Lampu Ambient</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Auto Park Assist" data-id="Bantuan Parkir Otomatis">Bantuan Parkir Otomatis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-400 mr-3 mt-1"></i>
+                            <span class="text-gray-300" data-en="Exclusive Color Options" data-id="Pilihan Warna Eksklusif">Pilihan Warna Eksklusif</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="block text-center bg-gray-700 text-white py-3 rounded-full font-semibold hover:bg-gray-600 transition" data-en="Learn More" data-id="Pelajari Lebih Lanjut">Pelajari Lebih Lanjut</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">JAECOO</h3>
+                    <p class="text-gray-400" data-en="Premium Electric SUV" data-id="SUV Listrik Premium">SUV Listrik Premium</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-en="Quick Links" data-id="Tautan Cepat">Tautan Cepat</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition" data-en="Home" data-id="Beranda">Beranda</a></li>
+                        <li><a href="index.html#models" class="hover:text-white transition" data-en="All Models" data-id="Semua Model">Semua Model</a></li>
+                        <li><a href="#specs" class="hover:text-white transition" data-en="Specifications" data-id="Spesifikasi">Spesifikasi</a></li>
+                        <li><a href="#contact" class="hover:text-white transition" data-en="Contact" data-id="Kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-en="Contact" data-id="Kontak">Kontak</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>+62-8180-4110-901</li>
+                        <li>ferdiansupriadi@gmail.id</li>
+                        <li>Jl. Gatot Subroto 123<br>Jakarta Selatan</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4" data-en="Follow Us" data-id="Ikuti Kami">Ikuti Kami</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 JAECOO Indonesia. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language switching functionality
+        let currentLang = 'id';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            document.querySelectorAll('[data-en], [data-id]').forEach(element => {
+                if (element.dataset[lang]) {
+                    element.textContent = element.dataset[lang];
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.id === `lang-${lang}` || btn.id === `mobile-lang-${lang}`) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+        
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('lang-id').addEventListener('click', () => switchLanguage('id'));
+        document.getElementById('mobile-lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('mobile-lang-id').addEventListener('click', () => switchLanguage('id'));
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.spec-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>-col space-y-4">
+                    <a href="index.html" data-en="Home" data-id="Beranda">Beranda</a>
+                    <a href="index.html#models" data-en="Models" data-id="Model">Model</a>
+                    <a href="#specs" data-en="Specifications" data-id="Spesifikasi">Spesifikasi</a>
+                    <a href="#features" data-en="Features" data-id="Fitur">Fitur</a>
+                    <a href="#contact" data-en="Contact" data-id="Kontak">Kontak</a>
+                    <div class="flex space-x-2 pt-4">
+                        <button id="mobile-lang-en" class="lang-btn px-3 py-1 rounded">EN</button>
+                        <button id="mobile-lang-id" class="lang-btn px-3 py-1 rounded active">ID</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-fade-in">
+                    <div class="inline-block bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-6" data-en="100% ELECTRIC" data-id="100% LISTRIK">100% LISTRIK</div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6">JAECOO 5 EV</h1>
+                    <p class="text-xl md:text-2xl text-gray-300 mb-8" data-en="The Future of Urban Mobility" data-id="Masa Depan Mobilitas Urban">Masa Depan Mobilitas Urban</p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <div class="bg-black/40 backdrop-blur-sm px-6 py-3 rounded-lg">
+                            <div class="text-green-400 text-sm" data-en="Range" data-id="Jarak Tempuh">Jarak Tempuh</div>
+                            <div class="text-2xl font-bold">490 km</div>
+                        </div>
+                        <div class="bg-black/40 backdrop-blur-sm px-6 py-3 rounded-lg">
+                            <div class="text-green-400 text-sm">0-100 km/h</div>
+                            <div class="text-2xl font-bold">7.`3s</div>
+                        </div>
+                        <div class="bg-black/40 backdrop-blur-sm px-6 py-3 rounded-lg">
+                            <div class="text-green-400 text-sm" data-en="Power" data-id="Daya">Daya</div>
+                            <div class="text-2xl font-bold">150 kW</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-green-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-600 transition text-center" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
+                        <a href="#specs" class="border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-black transition text-center" data-en="View Specifications" data-id="Lihat Spesifikasi">Lihat Spesifikasi</a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="j5 ev.webp" alt="JAECOO 5 EV" class="w-full h-auto animate-fade-in">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white px-6 py-3 rounded-bl-3xl">
+                        <div class="text-sm" data-en="Starting from" data-id="Mulai dari">Mulai dari</div>
+                        <div class="text-2xl font-bold">Rp 249,9 Juta</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Specifications -->
+    <section id="specs" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4" data-en="Technical Specifications" data-id="Spesifikasi Teknis">Spesifikasi Teknis</h2>
+            <p class="text-center text-gray-400 mb-16" data-en="Performance that exceeds expectations" data-id="Performa yang melampaui ekspektasi">Performa yang melampaui ekspektasi</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-battery-full text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Battery Capacity" data-id="Kapasitas Baterai">Kapasitas Baterai</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">60,9 kWh</p>
+                    <p class="text-gray-400 text-sm" data-en="Lithium-ion battery" data-id="Baterai lithium-ion">Baterai lithium-ion</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-tachometer-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Top Speed" data-id="Kecepatan Maksimal">Kecepatan Maksimal</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">170 km/h</p>
+                    <p class="text-gray-400 text-sm" data-en="Electronically limited" data-id="Dibatasi elektronik">Dibatasi elektronik</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Fast Charging" data-id="Pengisian Cepat">Pengisian Cepat</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">28 min</p>
+                    <p class="text-gray-400 text-sm" data-en="20-80% charge" data-id="Isi 20-80%">Isi 30-80%</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-road text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Electric Range" data-id="Jarak Tempuh">Jarak Tempuh</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">490 km</p>
+                    <p class="text-gray-400 text-sm">NEDC Standard</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-cog text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Motor Power" data-id="Daya Motor">Daya Motor</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">155 kW</p>
+                    <p class="text-gray-400 text-sm" data-en="Peak output" data-id="Output puncak">Output puncak</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-weight-hanging text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Torque" data-id="Torsi">Torsi</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">288 Nm</p>
+                    <p class="text-gray-400 text-sm" data-en="Instant torque" data-id="Torsi instan">Torsi instan</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-car text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Drive Type" data-id="Tipe Penggerak">Tipe Penggerak</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">FWD</p>
+                    <p class="text-gray-400 text-sm" data-en="Front-wheel drive" data-id="Penggerak roda depan">Penggerak roda depan</p>
+                </div>
+                
+                <div class="spec-card p-6 rounded-xl">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Seating" data-id="Kapasitas">Kapasitas</h3>
+                    <p class="text-3xl font-bold text-green-400 mb-2">5</p>
+                    <p class="text-gray-400 text-sm" data-en="Passengers" data-id="Penumpang">Penumpang</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4" data-en="Advanced Features" data-id="Fitur Canggih">Fitur Canggih</h2>
+            <p class="text-center text-gray-400 mb-16" data-en="Technology that enhances every journey" data-id="Teknologi yang meningkatkan setiap perjalanan">Teknologi yang meningkatkan setiap perjalanan</p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Smart AI Assistant" data-id="Asisten AI Cerdas">Asisten AI Cerdas</h3>
+                    <p class="text-gray-400" data-en="Voice-controlled intelligent system that learns your preferences and provides personalized experience." data-id="Sistem cerdas dengan kontrol suara yang mempelajari preferensi Anda dan memberikan pengalaman personal.">Sistem cerdas dengan kontrol suara yang mempelajari preferensi Anda dan memberikan pengalaman personal.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Advanced Safety Suite" data-id="Sistem Keselamatan Canggih">Sistem Keselamatan Canggih</h3>
+                    <p class="text-gray-400" data-en="360-degree cameras, adaptive cruise control, lane keeping assist, and automatic emergency braking." data-id="Kamera 360 derajat, cruise control adaptif, bantuan menjaga lajur, dan pengereman darurat otomatis.">Kamera 360 derajat, cruise control adaptif, bantuan menjaga lajur, dan pengereman darurat otomatis.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Connected Car App" data-id="Aplikasi Mobil Terhubung">Aplikasi Mobil Terhubung</h3>
+                    <p class="text-gray-400" data-en="Control and monitor your vehicle remotely. Check battery status, start climate control, and locate your car." data-id="Kontrol dan pantau kendaraan Anda dari jarak jauh. Cek status baterai, nyalakan AC, dan temukan mobil Anda.">Kontrol dan pantau kendaraan Anda dari jarak jauh. Cek status baterai, nyalakan AC, dan temukan mobil Anda.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tablet-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Premium Infotainment" data-id="Infotainment Premium">Infotainment Premium</h3>
+                    <p class="text-gray-400" data-en="15.6-inch touchscreen display with wireless Apple CarPlay and Android Auto integration." data-id="Layar sentuh 15,6 inci dengan integrasi wireless Apple CarPlay dan Android Auto.">Layar sentuh 13,6 inci dengan integrasi wireless Apple CarPlay dan Android Auto.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wind text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Climate Control" data-id="Kontrol Iklim">Kontrol Iklim</h3>
+                    <p class="text-gray-400" data-en="Dual-zone automatic climate control with air purification system and HEPA filter." data-id="Kontrol iklim otomatis dua zona dengan sistem pemurnian udara dan filter HEPA.">Kontrol iklim otomatis dua zona dengan sistem pemurnian udara dan filter HEPA.</p>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-xl hover:bg-gray-700 transition">
+                    <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-parking text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" data-en="Auto Park Assist" data-id="Bantuan Parkir Otomatis">Bantuan Parkir Otomatis</h3>
+                    <p class="text-gray-400" data-en="Automatic parallel and perpendicular parking with one-touch operation." data-id="Parkir paralel dan tegak lurus otomatis dengan operasi satu sentuhan.">Parkir paralel dan tegak lurus otomatis dengan operasi satu sentuhan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Gallery -->
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4" data-en="Interior & Exterior" data-id="Interior & Eksterior">Interior & Eksterior</h2>
+            <p class="text-center text-gray-400 mb-16" data-en="Luxury meets sustainability" data-id="Kemewahan bertemu keberlanjutan">Kemewahan bertemu keberlanjutan</p>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80" alt="Interior" class="w-full h-80 object-cover">
+                    <div class="bg-gray-800 p-4">
+                        <h3 class="text-xl font-bold" data-en="Premium Interior" data-id="Interior Premium">Interior Premium</h3>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Dashboard" class="w-full h-80 object-cover">
+                    <div class="bg-gray-800 p-4">
+                        <h3 class="text-xl font-bold" data-en="Digital Dashboard" data-id="Dashboard Digital">Dashboard Digital</h3>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80" alt="Exterior" class="w-full h-80 object-cover">
+                    <div class="bg-gray-800 p-4">
+                        <h3 class="text-xl font-bold" data-en="Aerodynamic Design" data-id="Desain Aerodinamis">Desain Aerodinamis</h3>
+                    </div>
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1583267746897-ec49c1856b50?w=800&q=80" alt="Seats" class="w-full h-80 object-cover">
+                    <div class="bg-gray-800 p-4">
+                        <h3 class="text-xl font-bold" data-en="Comfort Seating" data-id="Kursi Nyaman">Kursi Nyaman</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6" data-en="Ready to Go Electric?" data-id="Siap Beralih ke Listrik?">Siap Beralih ke Listrik?</h2>
+            <p class="text-xl text-gray-400 mb-12" data-en="Experience the JAECOO 5 EV today. Book your test drive now." data-id="Rasakan JAECOO 5 EV hari ini. Pesan test drive Anda sekarang.">Rasakan JAECOO 5 EV hari ini. Pesan test drive Anda sekarang.</p>
+            
+            <div class="flex flex
