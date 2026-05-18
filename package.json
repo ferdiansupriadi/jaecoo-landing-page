@@ -1,6 +1,11 @@
 {
+  "scripts": {
+    "minify": "node minify.js"
+  },
   "devDependencies": {
-    "tailwindcss": "^3.4.19"
+    "clean-css-cli": "^5.6.3",
+    "tailwindcss": "^3.4.19",
+    "terser": "^5.47.1"
   },
   "dependencies": {
     "sharp": "^0.34.5"

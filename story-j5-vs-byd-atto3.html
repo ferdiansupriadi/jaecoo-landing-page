@@ -49,16 +49,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="styles-index.css">
-    <style>
-        .lang-btn.active { background: white; color: black; }
-        .lang-btn:not(.active) { background: transparent; color: white; border: 1px solid white; }
-        .lang-btn:not(.active):hover { background: rgba(255,255,255,0.1); }
-        .nav-scrolled { background: rgba(0, 0, 0, 0.95) !important; backdrop-filter: blur(10px); }
-        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; z-index: 100; }
-        .mobile-menu.active { transform: translateX(0); }
-        .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        @media (max-width: 640px) { .pros-cons-grid { grid-template-columns: 1fr; } }
-    </style>
+    <link rel="stylesheet" href="styles-story-j5-vs-byd-atto3.css">
 </head>
 <body class="bg-black text-white scroll-smooth">
 
@@ -527,37 +518,6 @@
     </footer>
 
     <script src="scripts-index.js" defer></script>
-    <script>
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
-            else navbar.classList.remove('nav-scrolled');
-        });
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
-        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
-        if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('active')));
-        let currentLang = 'id';
-        function switchLanguage(lang) {
-            currentLang = lang;
-            document.querySelectorAll('[data-en], [data-id]').forEach(el => {
-                if (el.dataset[lang]) el.textContent = el.dataset[lang];
-            });
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                if (btn.id === `lang-${lang}` || btn.id === `mobile-lang-${lang}`) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
-        }
-        const btnLangEn = document.getElementById('lang-en');
-        const btnLangId = document.getElementById('lang-id');
-        const btnMobileLangEn = document.getElementById('mobile-lang-en');
-        const btnMobileLangId = document.getElementById('mobile-lang-id');
-        if (btnLangEn) btnLangEn.addEventListener('click', () => switchLanguage('en'));
-        if (btnLangId) btnLangId.addEventListener('click', () => switchLanguage('id'));
-        if (btnMobileLangEn) btnMobileLangEn.addEventListener('click', () => switchLanguage('en'));
-        if (btnMobileLangId) btnMobileLangId.addEventListener('click', () => switchLanguage('id'));
-    </script>
+    <script src="scripts-story-j5-vs-byd-atto3.js" defer></script>
 </body>
 </html>
