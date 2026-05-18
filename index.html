@@ -891,13 +891,13 @@ body {
       "name": "JAECOO Indonesia Jakarta Selatan",
       "image": [
         "https://omodajaecoojaksel.id/banner1.webp",
-        "https://omodajaecoojaksel.id/j5 ev.webp",
+        "https://omodajaecoojaksel.id/J5_EV.webp",
         "https://omodajaecoojaksel.id/j7.avif"
       ],
       "description": "Dealer resmi JAECOO Jakarta Selatan - SUV Premium Hybrid & Electric. Showroom di Kuningan & Mampang. Test Drive Gratis! Rating 4.9⭐",
       "@id": "https://omodajaecoojaksel.id",
       "url": "https://omodajaecoojaksel.id",
-      "logo": "https://omodajaecoojaksel.id/jaecoo1.webp",
+      "logo": {"@type": "ImageObject", "url": "https://omodajaecoojaksel.id/jaecoo1.webp"},
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jl. Prof. DR. Satrio No.Kav.3, RW.5, Kuningan, Karet Kuningan",
@@ -941,24 +941,24 @@ body {
       "review": [
         {
           "@type": "Review",
-          "name": "JAECOO J5 EV Kendaraan Listrik Impian Keluarga Modern",
-          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+          "headline": "JAECOO J5 EV Kendaraan Listrik Impian Keluarga Modern",
+          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
           "author": { "@type": "Person", "name": "Budi Santoso" },
           "reviewBody": "Kendaraan JAECOO J5 EV sangat memuaskan. Performa istimewa, teknologi canggih, dan desain modern. Sangat recommended untuk keluarga Indonesia modern!",
           "datePublished": "2026-03-01"
         },
         {
           "@type": "Review",
-          "name": "JAECOO J7 Pilihan SUV Premium Terbaik di Kelasnya",
-          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+          "headline": "JAECOO J7 Pilihan SUV Premium Terbaik di Kelasnya",
+          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
           "author": { "@type": "Person", "name": "Siti Nurhaliza" },
           "reviewBody": "JAECOO J7 adalah pilihan terbaik. Handling sempurna, interior nyaman, dan hemat bahan bakar. Pelayanan JAECOO juga luar biasa memuaskan!",
           "datePublished": "2026-02-28"
         },
         {
           "@type": "Review",
-          "name": "JAECOO J8 SUV Flagship Premium yang Sempurna",
-          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
+          "headline": "JAECOO J8 SUV Flagship Premium yang Sempurna",
+          "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
           "author": { "@type": "Person", "name": "Ahmad Wijaya" },
           "reviewBody": "JAECOO J8 adalah SUV premium yang sempurna. Teknologi hybrid super memberikan performa maksimal dengan efisiensi bahan bakar terbaik di kelasnya.",
           "datePublished": "2026-02-27"
@@ -976,7 +976,7 @@ body {
     <!-- Floating Contact Buttons -->
     <div class="floating-contact">
         <!-- WhatsApp Button -->
-        <a href="https://wa.me/6281804110901?text=Halo%20JAECOO,%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut" target="_blank" class="contact-btn whatsapp-btn" aria-label="WhatsApp">
+        <a href="https://wa.me/6281804110901?text=Halo%20JAECOO,%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut" target="_blank" rel="nofollow noopener" class="contact-btn whatsapp-btn" aria-label="WhatsApp">
             <div class="pulse-ring"></div>
             <i class="fab fa-whatsapp"></i>
             <span class="contact-tooltip">Chat via WhatsApp</span>
@@ -1395,6 +1395,17 @@ body {
                             </div>
                         </a>
 
+                        <a href="story-j5-vs-byd-atto3.html" class="stories-card flex-shrink-0 rounded-xl overflow-hidden bg-black border border-gray-800 hover:border-gray-600 transition group block hover:no-underline">
+                            <div class="relative h-44 sm:h-52 overflow-hidden">
+                                <img src="https://static.semrush.com/contentshake/articles/ai-images/4b91f0df-ea17-4fc9-b396-1fed9894137a/8887582b-ded6-440f-aece-396d2e63c5af" alt="Perbandingan Jaecoo J5 dan BYD Atto 3" loading="lazy" width="800" height="450" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                <div class="absolute top-3 left-3"><span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold">🏆 Komparasi</span></div>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="text-base font-bold mb-1 group-hover:text-gray-300 transition leading-tight" data-en="Jaecoo J5 vs BYD Atto 3: Which Is Best?" data-id="Jaecoo J5 vs BYD Atto 3: Mana yang Terbaik?">Jaecoo J5 vs BYD Atto 3: Mana yang Terbaik?</h3>
+                                <p class="text-gray-400 text-xs leading-relaxed" data-en="A complete comparison of design, performance, technology, and price" data-id="Perbandingan lengkap desain, performa, teknologi, dan harga">Perbandingan lengkap desain, performa, teknologi, dan harga</p>
+                            </div>
+                        </a>
+
                     </div><!-- end track -->
                 </div><!-- end overflow-hidden -->
 
@@ -1407,6 +1418,7 @@ body {
                     <button class="stories-dot w-2.5 h-2.5 rounded-full bg-gray-600 transition" data-index="4" aria-label="Slide 5"></button>
                     <button class="stories-dot w-2.5 h-2.5 rounded-full bg-gray-600 transition" data-index="5" aria-label="Slide 6"></button>
                     <button class="stories-dot w-2.5 h-2.5 rounded-full bg-gray-600 transition" data-index="6" aria-label="Slide 7"></button>
+                    <button class="stories-dot w-2.5 h-2.5 rounded-full bg-gray-600 transition" data-index="7" aria-label="Slide 8"></button>
                 </div>
             </div><!-- end carousel wrapper -->
 
@@ -1707,7 +1719,7 @@ body {
             <!-- 3. CTA -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a href="https://wa.me/6281804110901?text=Halo%2C%20saya%20ingin%20konsultasi%20pembiayaan%20kredit%20JAECOO"
-                   target="_blank" rel="noopener"
+                   target="_blank" rel="nofollow noopener"
                    class="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition text-sm sm:text-base w-full sm:w-auto justify-center">
                     <i class="fab fa-whatsapp text-green-600 text-xl"></i>
                     <span data-en="Free Financing Consultation" data-id="Konsultasi Pembiayaan Gratis">Konsultasi Pembiayaan Gratis</span>

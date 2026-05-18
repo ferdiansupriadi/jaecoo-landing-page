@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -26,9 +26,9 @@
         "name": "JAECOO City Store – Lotte Mall Kuningan",
         "description": "Dealer resmi JAECOO di Jakarta Selatan, menyediakan JAECOO J5 EV, JAECOO J7, dan JAECOO J8 dengan layanan test drive, pembelian, dan after-sales.",
         "url": "https://omodajaecoojaksel.id",
-        "logo": "https://omodajaecoojaksel.id/jaecoo1.webp",
+        "logo": {"@type": "ImageObject", "url": "https://omodajaecoojaksel.id/jaecoo1.webp", "width": 800, "height": 200},
         "image": "https://omodajaecoojaksel.id/banner1.webp",
-        "telephone": "+62818-0411-0901",
+        "telephone": "+62-818-0411-0901",
         "email": "ferdiansupriadi@gmail.com",
         "address": {
             "@type": "PostalAddress",
@@ -38,33 +38,35 @@
             "postalCode": "12940",
             "addressCountry": "ID"
         },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-            "opens": "10:00",
-            "closes": "22:00"
-        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+                "opens": "10:00",
+                "closes": "22:00"
+            }
+        ],
         "sameAs": ["https://www.jaecoo.com/id"],
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "127",
-            "bestRating": "5",
-            "worstRating": "1"
+            "ratingValue": 4.9,
+            "reviewCount": 127,
+            "bestRating": 5,
+            "worstRating": 1
         },
         "review": [
             {
                 "@type": "Review",
-                "name": "Dealer JAECOO Terbaik di Jakarta Selatan",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "headline": "Dealer JAECOO Terbaik di Jakarta Selatan",
+                "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
                 "author": { "@type": "Person", "name": "Taufik Hidayat" },
                 "reviewBody": "Showroom JAECOO di Kuningan sangat nyaman, staf profesional dan sangat membantu. Proses pembelian mudah dan cepat. Puas sekali berbelanja di sini!",
                 "datePublished": "2026-03-05"
             },
             {
                 "@type": "Review",
-                "name": "Pelayanan Prima, Test Drive Menyenangkan",
-                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "headline": "Pelayanan Prima, Test Drive Menyenangkan",
+                "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
                 "author": { "@type": "Person", "name": "Dewi Rahayu" },
                 "reviewBody": "Test drive JAECOO J7 sangat menyenangkan. Sales advisor sangat informatif dan sabar menjelaskan semua fitur. Highly recommended dealer ini!",
                 "datePublished": "2026-02-18"
@@ -94,7 +96,7 @@
 
     <!-- Floating Contact Buttons -->
     <div class="floating-contact">
-        <a href="https://wa.me/6281804110901?text=Halo%20JAECOO,%20saya%20ingin%20mengetahui%20lebih%20lanjut" target="_blank" class="contact-btn whatsapp-btn" aria-label="WhatsApp">
+        <a href="https://wa.me/6281804110901?text=Halo%20JAECOO,%20saya%20ingin%20mengetahui%20lebih%20lanjut" target="_blank" rel="nofollow noopener" class="contact-btn whatsapp-btn" aria-label="WhatsApp">
             <div class="pulse-ring"></div>
             <i class="fab fa-whatsapp"></i>
             <span class="contact-tooltip">Chat via WhatsApp</span>
@@ -215,6 +217,19 @@
         </div>
     </section>
 
+    <!-- Tentang Dealer -->
+    <section class="bg-black py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center" data-en="Why Choose JAECOO Kuningan?" data-id="Mengapa Memilih JAECOO Kuningan?">Mengapa Memilih JAECOO Kuningan?</h2>
+            <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
+                <p data-en="JAECOO City Store Lotte Mall Kuningan is the official authorized JAECOO dealer in South Jakarta, proudly serving customers from Kuningan, Setiabudi, Gatot Subroto, Sudirman, and surrounding areas. We are fully committed to providing the most exceptional premium SUV purchasing experience in Jakarta, ensuring every customer leaves fully satisfied with their choice." data-id="JAECOO City Store Lotte Mall Kuningan adalah dealer resmi JAECOO yang berwenang di Jakarta Selatan, dengan bangga melayani pelanggan dari Kuningan, Setiabudi, Gatot Subroto, Sudirman, dan sekitarnya. Kami sepenuhnya berkomitmen untuk memberikan pengalaman pembelian SUV premium yang paling luar biasa di Jakarta, memastikan setiap pelanggan pergi dengan kepuasan penuh atas pilihan mereka.">JAECOO City Store Lotte Mall Kuningan adalah dealer resmi JAECOO yang berwenang di Jakarta Selatan, dengan bangga melayani pelanggan dari Kuningan, Setiabudi, Gatot Subroto, Sudirman, dan sekitarnya. Kami sepenuhnya berkomitmen untuk memberikan pengalaman pembelian SUV premium yang paling luar biasa di Jakarta, memastikan setiap pelanggan pergi dengan kepuasan penuh atas pilihan mereka.</p>
+                <p data-en="Our showroom offers a complete lineup of JAECOO vehicles, including the JAECOO J5 EV — Indonesia's first pure electric SUV from JAECOO — as well as the JAECOO J7 SHS &amp; AWD and the flagship JAECOO J8 SHS &amp; ARDIS. Our professional sales consultants are ready to assist you at every stage of your journey — from scheduling a test drive, appraising your trade-in vehicle, exploring flexible financing options with leading Indonesian banks, all the way to a memorable vehicle delivery ceremony." data-id="Showroom kami menawarkan jajaran lengkap kendaraan JAECOO, termasuk JAECOO J5 EV — SUV listrik murni pertama JAECOO di Indonesia — serta JAECOO J7 SHS &amp; AWD dan JAECOO J8 SHS &amp; ARDIS sebagai unggulan. Konsultan sales profesional kami siap membantu Anda di setiap tahap perjalanan — mulai dari penjadwalan test drive, penilaian kendaraan tukar tambah, eksplorasi opsi pembiayaan fleksibel bersama bank-bank terkemuka di Indonesia, hingga seremoni serah terima kendaraan yang berkesan.">Showroom kami menawarkan jajaran lengkap kendaraan JAECOO, termasuk JAECOO J5 EV — SUV listrik murni pertama JAECOO di Indonesia — serta JAECOO J7 SHS &amp; AWD dan JAECOO J8 SHS &amp; ARDIS sebagai unggulan. Konsultan sales profesional kami siap membantu Anda di setiap tahap perjalanan — mulai dari penjadwalan test drive, penilaian kendaraan tukar tambah, eksplorasi opsi pembiayaan fleksibel bersama bank-bank terkemuka di Indonesia, hingga seremoni serah terima kendaraan yang berkesan.</p>
+                <p data-en="Strategically located inside Lotte Mall Kuningan — one of Jakarta's most prestigious and accessible premium shopping destinations — our showroom is open every day from 10:00 to 22:00 WIB, with no appointment needed for a walk-in consultation. With more than 127 happy customers and a stellar 4.9-star Google rating, JAECOO Kuningan has established itself as the top destination for premium SUV buyers across the Jabodetabek area." data-id="Berlokasi strategis di dalam Lotte Mall Kuningan — salah satu destinasi belanja premium paling bergengsi dan mudah dijangkau di Jakarta — showroom kami buka setiap hari pukul 10:00 hingga 22:00 WIB, tanpa perlu perjanjian untuk konsultasi langsung. Dengan lebih dari 127 pelanggan bahagia dan rating Google yang luar biasa 4,9 bintang, JAECOO Kuningan telah memantapkan diri sebagai destinasi utama pembeli SUV premium di seluruh wilayah Jabodetabek.">Berlokasi strategis di dalam Lotte Mall Kuningan — salah satu destinasi belanja premium paling bergengsi dan mudah dijangkau di Jakarta — showroom kami buka setiap hari pukul 10:00 hingga 22:00 WIB, tanpa perlu perjanjian untuk konsultasi langsung. Dengan lebih dari 127 pelanggan bahagia dan rating Google yang luar biasa 4,9 bintang, JAECOO Kuningan telah memantapkan diri sebagai destinasi utama pembeli SUV premium di seluruh wilayah Jabodetabek.</p>
+                <p data-en="JAECOO is a global automotive brand celebrated for its bold and futuristic design language, state-of-the-art technology integration, and outstanding driving performance. Every JAECOO vehicle is meticulously engineered to deliver a truly premium driving experience that seamlessly balances comfort, active safety, fuel efficiency, and environmental responsibility. When you choose JAECOO, you are choosing the smart, sophisticated choice for the modern Indonesian family." data-id="JAECOO adalah merek otomotif global yang dikenal dengan bahasa desain yang berani dan futuristik, integrasi teknologi mutakhir, dan performa berkendara yang luar biasa. Setiap kendaraan JAECOO dirancang dengan teliti untuk menghadirkan pengalaman berkendara premium yang secara sempurna menyeimbangkan kenyamanan, keselamatan aktif, efisiensi bahan bakar, dan tanggung jawab lingkungan. Ketika Anda memilih JAECOO, Anda memilih pilihan cerdas dan berkelas untuk keluarga Indonesia modern.">JAECOO adalah merek otomotif global yang dikenal dengan bahasa desain yang berani dan futuristik, integrasi teknologi mutakhir, dan performa berkendara yang luar biasa. Setiap kendaraan JAECOO dirancang dengan teliti untuk menghadirkan pengalaman berkendara premium yang secara sempurna menyeimbangkan kenyamanan, keselamatan aktif, efisiensi bahan bakar, dan tanggung jawab lingkungan. Ketika Anda memilih JAECOO, Anda memilih pilihan cerdas dan berkelas untuk keluarga Indonesia modern.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Showroom Info -->
     <section class="bg-black py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -247,7 +262,7 @@
                         <div>
                             <h3 class="text-xl font-bold mb-1" data-en="Phone / WhatsApp" data-id="Telepon / WhatsApp">Telepon / WhatsApp</h3>
                             <a href="tel:+6281804110901" class="text-gray-400 hover:text-white transition block">+62 818 0411 0901</a>
-                            <a href="https://wa.me/6281804110901" target="_blank" rel="noopener" class="text-green-400 hover:text-green-300 transition text-sm mt-1 block"><i class="fab fa-whatsapp mr-1"></i>Chat WhatsApp</a>
+                            <a href="https://wa.me/6281804110901" target="_blank" rel="nofollow noopener" class="text-green-400 hover:text-green-300 transition text-sm mt-1 block"><i class="fab fa-whatsapp mr-1"></i>Chat WhatsApp</a>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -301,7 +316,7 @@
                 <div class="rounded-xl overflow-hidden aspect-square bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 flex flex-col items-center justify-center text-center p-4">
                     <i class="fas fa-camera text-3xl text-gray-500 mb-3"></i>
                     <p class="text-gray-400 text-sm font-semibold" data-en="Your photo here!" data-id="Foto Anda di sini!">Foto Anda di sini!</p>
-                    <a href="https://wa.me/6281804110901?text=Halo,%20saya%20ingin%20booking%20test%20drive" target="_blank" rel="noopener" class="mt-3 text-xs text-green-400 hover:text-green-300" data-en="Book Test Drive" data-id="Booking Test Drive">Booking Test Drive →</a>
+                    <a href="https://wa.me/6281804110901?text=Halo,%20saya%20ingin%20booking%20test%20drive" target="_blank" rel="nofollow noopener" class="mt-3 text-xs text-green-400 hover:text-green-300" data-en="Book Test Drive" data-id="Booking Test Drive">Booking Test Drive →</a>
                 </div>
             </div>
         </div>
@@ -313,7 +328,7 @@
             <h2 class="text-4xl font-bold mb-6" data-en="Ready to Experience JAECOO?" data-id="Siap Merasakan JAECOO?">Siap Merasakan JAECOO?</h2>
             <p class="text-gray-400 text-lg mb-10" data-en="Visit our showroom at Lotte Mall Kuningan or contact us now for a free test drive." data-id="Kunjungi showroom kami di Lotte Mall Kuningan atau hubungi kami sekarang untuk test drive gratis.">Kunjungi showroom kami di Lotte Mall Kuningan atau hubungi kami sekarang untuk test drive gratis.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/6281804110901?text=Halo,%20saya%20ingin%20booking%20test%20drive%20JAECOO" target="_blank" rel="noopener" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition" data-en="Book Test Drive via WA" data-id="Booking Test Drive via WA">Booking Test Drive via WA</a>
+                <a href="https://wa.me/6281804110901?text=Halo,%20saya%20ingin%20booking%20test%20drive%20JAECOO" target="_blank" rel="nofollow noopener" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-gray-200 transition" data-en="Book Test Drive via WA" data-id="Booking Test Drive via WA">Booking Test Drive via WA</a>
                 <a href="/#models" class="border-2 border-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-black transition" data-en="See All Models" data-id="Lihat Semua Model">Lihat Semua Model</a>
             </div>
         </div>
