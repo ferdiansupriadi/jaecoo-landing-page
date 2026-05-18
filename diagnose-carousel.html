@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnose Carousel</title>
+    <style>
+        body {
+            background: #000;
+            color: #0f0;
+            font-family: monospace;
+            padding: 20px;
+            font-size: 14px;
+        }
+        h1 { color: #0ff; }
+        .ok { color: #0f0; }
+        .error { color: #f00; }
+        .warning { color: #ff0; }
+        .section { 
+            background: #111; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin: 5px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0ff;
+        }
+        #preview {
+            width: 100%;
+            height: 300px;
+            background: #222;
+            margin: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .test-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .test-slide.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 CAROUSEL DIAGNOSTIC</h1>
+    
+    <div class="section">
+        <h2>1. Window Info</h2>
+        <div id="windowInfo"></div>
+    </div>
+    
+    <div class="section">
+        <h2>2. Image Check</h2>
+        <div id="imageCheck"></div>
+    </div>
+    
+    <div class="section">
+        <h2>3. HTML Elements</h2>
+        <div id="elementsCheck"></div>
+    </div>
+    
+    <div class="section">
+        <h2>4. CSS Check</h2>
+        <div id="cssCheck"></div>
+    </div>
+    
+    <div class="section">
+        <h2>5. JavaScript Test</h2>
+        <div id="jsTest"></div>
+        <div id="preview">
+            <div class="test-slide active" style="background-image:url('banner1.webp')"></div>
+            <div class="test-slide" style="background-image:url('banner2.webp')"></div>
+            <div class="test-slide" style="background-image:url('banner3.webp')"></div>
+            <div class="test-slide" style="background-image:url('banner4.webp')"></div>
+        </div>
+        <button onclick="testCarousel()">▶ Test Carousel Animation</button>
+    </div>
+    
+    <div class="section">
+        <h2>6. Actions</h2>
+        <button onclick="window.location.reload()">🔄 Refresh</button>
+        <button onclick="window.open('index.html')">📄 Open index.html</button>
+        <button onclick="window.open('test-carousel.html')">📄 Open test-carousel.html</button>
+    </div>
+    
+    <script>
+        // 1. Window Info
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        const isMobile = width <= 768;
+        
+        document.getElementById('windowInfo').innerHTML = `
+            <span class="ok">✓ Width: ${width}px</span><br>
+            <span class="ok">✓ Height: ${height}px</span><br>
+            <span class="${isMobile ? 'ok' : 'warning'}">✓ Device: ${isMobile ? 'MOBILE' : 'DESKTOP'}</span><br>
+            <span class="ok">✓ User Agent: ${navigator.userAgent.substring(0, 50)}...</span>
+        `;
+        
+        // 2. Image Check
+        let imageHTML = '';
+        const images = ['banner1.webp', 'banner2.webp', 'banner3.webp', 'banner4.webp'];
+        let loadedCount = 0;
+        
+        images.forEach((img, i) => {
+            const testImg = new Image();
+            testImg.onload = () => {
+                loadedCount++;
+                imageHTML += `<span class="ok">✓ ${img} - ${testImg.width}x${testImg.height}</span><br>`;
+                document.getElementById('imageCheck').innerHTML = imageHTML;
+                
+                if (loadedCount === images.length) {
+                    imageHTML += `<br><span class="ok">✓ All images loaded!</span>`;
+                    document.getElementById('imageCheck').innerHTML = imageHTML;
+                }
+            };
+            testImg.onerror = () => {
+                imageHTML += `<span class="error">✗ ${img} - FAILED TO LOAD</span><br>`;
+                document.getElementById('imageCheck').innerHTML = imageHTML;
+            };
+            testImg.src = img;
+        });
+        
+        // 3. Check HTML Elements in index.html (via fetch)
+        fetch('index.html')
+            .then(r => r.text())
+            .then(html => {
+                const hasCarousel = html.includes('mobile-carousel');
+                const hasSlides = html.includes('carousel-slide');
+                const hasIndicators = html.includes('carousel-indicators');
+                const hasScript = html.includes('scripts-index.js');
+                
+                document.getElementById('elementsCheck').innerHTML = `
+                    <span class="${hasCarousel ? 'ok' : 'error'}">${hasCarousel ? '✓' : '✗'} .mobile-carousel div</span><br>
+                    <span class="${hasSlides ? 'ok' : 'error'}">${hasSlides ? '✓' : '✗'} .carousel-slide elements</span><br>
+                    <span class="${hasIndicators ? 'ok' : 'error'}">${hasIndicators ? '✓' : '✗'} .carousel-indicators</span><br>
+                    <span class="${hasScript ? 'ok' : 'error'}">${hasScript ? '✓' : '✗'} scripts-index.js loaded</span><br>
+                `;
+            })
+            .catch(e => {
+                document.getElementById('elementsCheck').innerHTML = `<span class="error">✗ Cannot read index.html: ${e.message}</span>`;
+            });
+        
+        // 4. CSS Check
+        fetch('styles-index.css')
+            .then(r => r.text())
+            .then(css => {
+                const hasCarouselCSS = css.includes('carousel-slide') || css.includes('mobile-carousel');
+                document.getElementById('cssCheck').innerHTML = `
+                    <span class="${hasCarouselCSS ? 'ok' : 'warning'}">${hasCarouselCSS ? '✓' : '⚠'} Carousel CSS in external file</span><br>
+                    <span class="ok">✓ CSS file loaded</span>
+                `;
+            })
+            .catch(e => {
+                document.getElementById('cssCheck').innerHTML = `<span class="warning">⚠ styles-index.css: ${e.message}</span>`;
+            });
+        
+        // 5. JavaScript Test
+        let testCurrentSlide = 0;
+        let testInterval;
+        
+        function testCarousel() {
+            const slides = document.querySelectorAll('.test-slide');
+            
+            if (testInterval) clearInterval(testInterval);
+            
+            testInterval = setInterval(() => {
+                slides.forEach(s => s.classList.remove('active'));
+                testCurrentSlide = (testCurrentSlide + 1) % slides.length;
+                slides[testCurrentSlide].classList.add('active');
+                
+                document.getElementById('jsTest').innerHTML = `
+                    <span class="ok">✓ Carousel running...</span><br>
+                    <span class="ok">Current slide: ${testCurrentSlide + 1}/4</span>
+                `;
+            }, 2000);
+        }
+        
+        document.getElementById('jsTest').innerHTML = `
+            <span class="ok">✓ JavaScript working</span><br>
+            <span class="warning">⚠ Click button above to test animation</span>
+        `;
+    </script>
+</body>
+</html>

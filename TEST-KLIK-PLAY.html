@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>VIDEO TEST - KLIK TOMBOL PLAY</title>
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: #fff;
+            font-family: Arial;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        video {
+            width: 90%;
+            max-width: 800px;
+            border: 3px solid yellow;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            background: #0f0;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 20px;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0d0;
+        }
+        .status {
+            padding: 20px;
+            font-size: 18px;
+            background: #333;
+            border-radius: 8px;
+            margin: 10px;
+            text-align: center;
+        }
+        .ok { color: #0f0; }
+        .error { color: #f00; }
+    </style>
+</head>
+<body>
+
+    <h1>🎬 VIDEO TEST BANNER</h1>
+    
+    <video id="myVideo" controls width="800">
+        <source src="indexBanner_pc.mp4" type="video/mp4">
+        <source src="indexBanner_pc.webm" type="video/webm">
+        Video tidak support
+    </video>
+
+    <button onclick="playVideo()" style="background:#0f0">▶️ KLIK INI UNTUK PLAY VIDEO</button>
+    
+    <div id="status" class="status">Klik tombol hijau di atas</div>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const status = document.getElementById('status');
+
+        function playVideo() {
+            status.innerHTML = '⏳ Mencoba play video...';
+            video.muted = true;
+            video.play()
+                .then(() => {
+                    status.innerHTML = '<span class="ok">✅✅✅ VIDEO BERHASIL DIPUTAR! ✅✅✅</span>';
+                    status.innerHTML += '<br>Duration: ' + video.duration.toFixed(1) + ' detik';
+                    status.innerHTML += '<br>Size: ' + video.videoWidth + 'x' + video.videoHeight;
+                })
+                .catch(error => {
+                    status.innerHTML = '<span class="error">❌ ERROR: ' + error.message + '</span>';
+                    status.innerHTML += '<br><br>Coba klik tombol PLAY di video player langsung (controls)';
+                });
+        }
+
+        // Auto info
+        video.addEventListener('loadedmetadata', () => {
+            status.innerHTML = '✓ Video loaded: ' + video.videoWidth + 'x' + video.videoHeight + '<br>Klik tombol hijau untuk play';
+        });
+
+        video.addEventListener('error', () => {
+            status.innerHTML = '<span class="error">❌ FILE ERROR - File video mungkin corrupt atau path salah</span>';
+        });
+
+        video.addEventListener('playing', () => {
+            status.innerHTML = '<span class="ok">✅ VIDEO SEDANG BERPUTAR!</span>';
+        });
+    </script>
+
+</body>
+</html>

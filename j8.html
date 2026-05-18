@@ -1,273 +1,106 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JAECOO 8 | Premium SUV Indonesia</title>
+    <title>JAECOO J8 | Premium SUV Indonesia</title>
+    <!-- Meta Description -->
+    <meta name="description" content="JAECOO J8 - SUV Flagship dengan Hybrid System Super, performa maksimal, interior premium, teknologi terdepan. Komfort dan efisiensi sempurna. Rating 5 bintang.">
+    <meta name="keywords" content="JAECOO J8, SUV Flagship, Mobil Hybrid, Interior Premium, Teknologi Terdepan">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="product">
+    <meta property="og:title" content="JAECOO J8 - SUV Flagship Premium">
+    <meta property="og:description" content="JAECOO J8 - SUV Flagship dengan Hybrid System Super, performa maksimal, interior premium, teknologi terdepan. Komfort dan efisiensi sempurna.">
+    <meta property="og:url" content="https://omodajaecoojaksel.id/j8">
+    <meta property="og:image" content="https://omodajaecoojaksel.id/j8.webp">
+    <meta property="og:site_name" content="JAECOO Indonesia">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@JAECOOIndonesia">
+    <meta name="twitter:title" content="JAECOO J8 - SUV Flagship Premium">
+    <meta name="twitter:description" content="JAECOO J8 - SUV Flagship dengan Hybrid System Super, performa maksimal, interior premium, teknologi terdepan.">
+    <meta name="twitter:image" content="https://omodajaecoojaksel.id/j8.webp">
+    <meta name="twitter:url" content="https://omodajaecoojaksel.id/j8">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://omodajaecoojaksel.id/j8.html">
+    <link rel="preload" as="image" href="j8.webp">
+    <!-- DNS Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="JAECOO">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="id">
+    
+    <meta name="google-site-verification" content="ZsR_V8ukC_VAZAE_t3sOilsAxsuieY0L-Y8M7UxQPI4" />
+    <link rel="icon" type="image/webp" href="j.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            overflow-x: hidden;
-            background: #000;
-        }
-
-        /* Navbar */
-        .nav-scrolled {
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        /* Language Switcher */
-        .lang-btn {
-            transition: all 0.3s ease;
-        }
-        
-        .lang-btn.active {
-            background: white;
-            color: black;
-        }
-        
-        .lang-btn:not(.active) {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-        }
-
-        .lang-btn:not(.active):hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Floating Contact Buttons */
-        .floating-contact {
-            position: fixed;
-            right: 30px;
-            bottom: 30px;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        .contact-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .contact-btn:hover {
-            transform: scale(1.1) translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-        }
-
-        .contact-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: inherit;
-            filter: blur(10px);
-            opacity: 0.5;
-            z-index: -1;
-        }
-
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-        }
-
-        .phone-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .contact-btn i {
-            font-size: 26px;
-            color: white;
-        }
-
-        .contact-tooltip {
-            position: absolute;
-            right: 75px;
-            background: white;
-            color: #333;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .contact-btn:hover .contact-tooltip {
-            opacity: 1;
-        }
-
-        .pulse-ring {
-            position: absolute;
-            border: 3px solid;
-            border-radius: 50%;
-            width: 100%;
-            height: 100%;
-            animation: pulseRing 2s ease-out infinite;
-        }
-
-        .whatsapp-btn .pulse-ring { border-color: #25D366; }
-        .phone-btn .pulse-ring { border-color: #667eea; }
-
-        @keyframes pulseRing {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-
-        /* Hero */
-        .hero-gradient {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
-        }
-
-        /* Variant Cards */
-        .variant-card {
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .variant-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: left 0.5s ease;
-            z-index: 0;
-        }
-        
-        .variant-card:hover::before {
-            left: 100%;
-        }
-
-        .variant-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-        }
-
-        /* Feature Cards */
-        .feature-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Comparison Table */
-        .comparison-table td {
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Highlight Box */
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            border: 1px solid rgba(102, 126, 234, 0.3);
-        }
-
-        /* Price Badge */
-        .price-badge {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        /* Gallery */
-        .gallery-item {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            border-radius: 1rem;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-item img {
-            transition: transform 0.5s ease;
-        }
-
-        /* Fade-in Animation */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .floating-contact {
-                right: 20px;
-                bottom: 20px;
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles-index.css">
+    
+    <!-- Product Schema JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "JAECOO J8",
+        "description": "JAECOO J8 - SUV Flagship dengan Hybrid System Super, performa maksimal, interior premium, teknologi terdepan. Komfort dan efisiensi sempurna",
+        "image": "https://omodajaecoojaksel.id/j8.webp",
+        "color": "Black",
+        "fuelType": "Hybrid",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": 4.9,
+            "reviewCount": 127,
+            "bestRating": 5,
+            "worstRating": 1
+        },
+        "review": [
+            {
+                "@type": "Review",
+                "name": "JAECOO J8 SUV Flagship Premium yang Sempurna",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "author": { "@type": "Person", "name": "Ahmad Wijaya" },
+                "reviewBody": "JAECOO J8 adalah SUV premium yang sempurna. Teknologi hybrid super memberikan performa maksimal dengan efisiensi bahan bakar terbaik di kelasnya.",
+                "datePublished": "2026-02-27"
+            },
+            {
+                "@type": "Review",
+                "name": "Interior J8 Mewah dan Efisien di Kemacetan Jakarta",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+                "author": { "@type": "Person", "name": "Rizky Pratama" },
+                "reviewBody": "Interior JAECOO J8 sangat mewah dan nyaman. Sistem hybrid bekerja sangat efisien di kemacetan Jakarta. Bangga memilikinya!",
+                "datePublished": "2026-02-20"
             }
-            .contact-btn {
-                width: 50px;
-                height: 50px;
-            }
-            .contact-btn i {
-                font-size: 22px;
-            }
+        ],
+        "offers": {
+            "@type": "Offer",
+            "name": "JAECOO J8",
+            "price": "600000000",
+            "priceCurrency": "IDR",
+            "availability": "https://schema.org/InStock"
         }
-    </style>
+    }
+    </script>
 </head>
-<body class="text-white">
+<body class="bg-black text-white">
 
     <!-- Floating Contact Buttons -->
     <div class="floating-contact">
-        <a href="https://wa.me/62818110901?text=Halo%20JAECOO,%20saya%20tertarik%20dengan%20JAECOO%208" target="_blank" class="contact-btn whatsapp-btn" aria-label="WhatsApp">
+        <a href="https://wa.me/6281804110901?text=Halo%20JAECOO,%20saya%20tertarik%20dengan%20JAECOO%208" target="_blank" class="contact-btn whatsapp-btn" aria-label="WhatsApp">
             <div class="pulse-ring"></div>
             <i class="fab fa-whatsapp"></i>
             <span class="contact-tooltip">Chat via WhatsApp</span>
         </a>
-        <a href="tel:+6281234567890" class="contact-btn phone-btn" aria-label="Hubungi Kami">
+        <a href="tel:+6281804110901" class="contact-btn phone-btn" aria-label="Hubungi Kami">
             <div class="pulse-ring"></div>
             <i class="fas fa-phone-alt"></i>
             <span class="contact-tooltip">Hubungi Kami</span>
@@ -280,13 +113,15 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <img src="jaecoo1.webp" alt="JAECOO Logo" class="h-8">
+                    <a href="/" class="cursor-pointer hover:opacity-80 transition">
+                        <img src="jaecoo1.webp" alt="JAECOO Logo" class="h-8">
+                    </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="hover:text-gray-300 transition" data-en="Home" data-id="Beranda">Beranda</a>
-                    <a href="index.html#models" class="hover:text-gray-300 transition" data-en="Models" data-id="Model">Model</a>
+                    <a href="/" class="hover:text-gray-300 transition" data-en="Home" data-id="Beranda">Beranda</a>
+                    <a href="/#models" class="hover:text-gray-300 transition" data-en="Models" data-id="Model">Model</a>
                     <a href="#variants" class="hover:text-gray-300 transition" data-en="Variants" data-id="Varian">Varian</a>
                     <a href="#features" class="hover:text-gray-300 transition" data-en="Features" data-id="Fitur">Fitur</a>
                     <a href="#book-now" class="hover:text-gray-300 transition" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
@@ -306,7 +141,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full bg-black shadow-2xl md:hidden">
+        <div id="mobile-menu" class="mobile-menu fixed top-0 left-0 w-64 h-full bg-black shadow-2xl md:hidden">
             <div class="p-6">
                 <div class="flex justify-end mb-8">
                     <button id="close-menu" class="text-white focus:outline-none">
@@ -316,8 +151,8 @@
                     </button>
                 </div>
                 <div class="flex flex-col space-y-6 text-lg">
-                    <a href="index.html" class="hover:text-gray-300 transition" data-en="Home" data-id="Beranda">Beranda</a>
-                    <a href="index.html#models" class="hover:text-gray-300 transition" data-en="Models" data-id="Model">Model</a>
+                    <a href="/" class="hover:text-gray-300 transition" data-en="Home" data-id="Beranda">Beranda</a>
+                    <a href="/#models" class="hover:text-gray-300 transition" data-en="Models" data-id="Model">Model</a>
                     <a href="#variants" class="hover:text-gray-300 transition" data-en="Variants" data-id="Varian">Varian</a>
                     <a href="#features" class="hover:text-gray-300 transition" data-en="Features" data-id="Fitur">Fitur</a>
                     <a href="#book-now" class="hover:text-gray-300 transition" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
@@ -331,7 +166,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-gradient pt-32 pb-20 relative overflow-hidden">
+    <section class="bg-black pt-32 pb-20 relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full filter blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl"></div>
@@ -343,13 +178,13 @@
                     <span data-en="PREMIUM SUV" data-id="SUV PREMIUM">SUV PREMIUM</span>
                 </div>
                 <h1 class="text-6xl md:text-8xl font-black mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                    JAECOO 8
+                    JAECOO J8
                 </h1>
                 <p class="text-2xl md:text-3xl text-gray-300 mb-8" data-en="Where Luxury Meets Performance" data-id="Dimana Kemewahan Bertemu Performa">Dimana Kemewahan Bertemu Performa</p>
             </div>
             
             <div class="rounded-2xl overflow-hidden shadow-2xl mb-8">
-                <img src="j8.jpg" alt="JAECOO 8" class="w-full h-auto object-cover">
+                <img src="j8.webp" alt="JAECOO J8" class="w-full h-auto object-cover">
             </div>
             
             <div class="grid md:grid-cols-4 gap-6 text-center">
@@ -382,22 +217,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-5xl font-bold mb-4" data-en="Choose Your Variant" data-id="Pilih Varian Anda">Pilih Varian Anda</h2>
-                <p class="text-xl text-gray-400" data-en="Two exceptional choices for your journey" data-id="Dua pilihan luar biasa untuk perjalanan Anda">Dua pilihan luar biasa untuk perjalanan Anda (test)</p>
+                <p class="text-xl text-gray-400" data-en="Two exceptional choices for your journey" data-id="Dua pilihan luar biasa untuk perjalanan Anda">Dua pilihan luar biasa untuk perjalanan Anda</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- JAECOO 8 SHS ARDIS -->
+                <!-- JAECOO J8 SHS ARDIS -->
                 <div class="variant-card bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-700">
                     <div class="relative">
                         <div class="absolute top-4 left-4 z-10">
                             <span class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold" data-en="SUPER HYBRID" data-id="SUPER HYBRID">SUPER HYBRID</span>
                         </div>
-                        <img src="j8.jpg" alt="JAECOO 8 SHS ARDIS" class="w-full h-80 object-cover">
+                        <img src="j8.webp" alt="JAECOO J8 SHS ARDIS" class="w-full h-80 object-cover" loading="lazy">
                     </div>
                     
                     <div class="p-8">
-                        <h3 class="text-3xl font-bold mb-2">JAECOO 8 SHS ARDIS</h3>
-                        <p class="text-gray-400 mb-6" data-en="Super Hybrid System with Advanced Features" data-id="Sistem Hybrid Super dengan Fitur Canggih">Sistem Hybrid Super dengan Fitur Canggih</p>
+                        <h3 class="text-3xl font-bold mb-2">JAECOO J8 SHS ARDIS</h3>
+                        <p class="text-gray-400 mb-6" data-en="Super Hybrid System with Advanced Features" data-id="Super Hybrid Sistem dengan Fitur Canggih">Super Hybrid Sistem dengan Fitur Canggih</p>
                         
                         <div class="space-y-3 mb-6">
                             <div class="flex items-center justify-between text-sm">
@@ -410,7 +245,7 @@
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400" data-en="Fuel Efficiency:" data-id="Efisiensi Bahan Bakar:">Efisiensi Bahan Bakar:</span>
-                                <span class="font-semibold text-green-400">25 km/L</span>
+                                <span class="font-semibold text-green-400">35 km/L</span>
                             </div>
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400" data-en="Electric Range:" data-id="Jarak Listrik:">Jarak Listrik:</span>
@@ -449,17 +284,17 @@
                     </div>
                 </div>
                 
-                <!-- JAECOO 8 ARDIS -->
+                <!-- JAECOO J8 ARDIS -->
                 <div class="variant-card bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-700">
                     <div class="relative">
                         <div class="absolute top-4 left-4 z-10">
                             <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold" data-en="PREMIUM" data-id="PREMIUM">PREMIUM</span>
                         </div>
-                        <img src="j8.jpg" alt="JAECOO 8 ARDIS" class="w-full h-80 object-cover">
+                        <img src="j8.webp" alt="JAECOO J8 ARDIS" class="w-full h-80 object-cover" loading="lazy">
                     </div>
                     
                     <div class="p-8">
-                        <h3 class="text-3xl font-bold mb-2">JAECOO 8 ARDIS</h3>
+                        <h3 class="text-3xl font-bold mb-2">JAECOO J8 ARDIS</h3>
                         <p class="text-gray-400 mb-6" data-en="Pure Performance with Advanced Technology" data-id="Performa Murni dengan Teknologi Canggih">Performa Murni dengan Teknologi Canggih</p>
                         
                         <div class="space-y-3 mb-6">
@@ -656,27 +491,27 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-5xl font-bold mb-4" data-en="Gallery" data-id="Galeri">Galeri</h2>
-                <p class="text-xl text-gray-400" data-en="Experience JAECOO 8 from every angle" data-id="Rasakan JAECOO 8 dari setiap sudut">Rasakan JAECOO 8 dari setiap sudut</p>
+                <p class="text-xl text-gray-400" data-en="Experience JAECOO J8 from every angle" data-id="Rasakan JAECOO J8 dari setiap sudut">Rasakan JAECOO J8 dari setiap sudut</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="gallery-item">
-                    <img src="j8.jpg" alt="JAECOO 8 Exterior" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="j8-1.avif" alt="JAECOO J8 Exterior" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="j8.jpg" alt="JAECOO 8 Interior" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="j8-2.avif" alt="JAECOO J8 Interior" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="j8.jpg" alt="JAECOO 8 Dashboard" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="j8-3.avif" alt="JAECOO J8 Dashboard" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="j8.jpg" alt="JAECOO 8 Seats" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="j8-4.jpg" alt="JAECOO J8 Seats" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="j8.jpg" alt="JAECOO 8 Technology" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="j8.webp" alt="JAECOO J8 Technology" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
                 </div>
                 <div class="gallery-item">
-                    <img src="j8.jpg" alt="JAECOO 8 Details" class="w-full h-64 object-cover rounded-2xl">
+                    <img src="j8shsardis.webp" alt="JAECOO J8 Details" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
                 </div>
             </div>
         </div>
@@ -688,7 +523,7 @@
             <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-3xl p-12 border border-purple-500/30">
                 <div class="text-center mb-12">
                     <h2 class="text-5xl font-bold mb-4" data-en="Book Your Test Drive" data-id="Pesan Test Drive Anda">Pesan Test Drive Anda</h2>
-                    <p class="text-xl text-gray-300" data-en="Experience the JAECOO 8 yourself" data-id="Rasakan sendiri JAECOO 8">Rasakan sendiri JAECOO 8</p>
+                    <p class="text-xl text-gray-300" data-en="Experience the JAECOO J8 yourself" data-id="Rasakan sendiri JAECOO J8">Rasakan sendiri JAECOO J8</p>
                 </div>
                 
                 <div id="booking-form" class="space-y-6">
@@ -701,8 +536,8 @@
                         <input id="field-phone" type="tel" placeholder="Nomor Telepon" class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500" data-en-placeholder="Phone Number" data-id-placeholder="Nomor Telepon">
                         <select id="field-variant" class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
                             <option value="" disabled selected data-en="Select Variant" data-id="Pilih Varian">Pilih Varian</option>
-                            <option value="JAECOO 8 SHS ARDIS">JAECOO 8 SHS ARDIS</option>
-                            <option value="JAECOO 8 ARDIS">JAECOO 8 ARDIS</option>
+                            <option value="JAECOO J8 SHS ARDIS">JAECOO J8 SHS ARDIS</option>
+                            <option value="JAECOO J8 ARDIS">JAECOO J8 ARDIS</option>
                         </select>
                     </div>
                     
@@ -724,7 +559,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="jaecoo1.webp" alt="JAECOO Logo" class="h-8 mb-4">
+                    <img src="jaecoo1.webp" alt="JAECOO Logo" class="h-8 mb-4" loading="lazy">
                     <p class="text-gray-400" data-en="Premium SUV with Advanced Technology" data-id="SUV Premium dengan Teknologi Canggih">SUV Premium dengan Teknologi Canggih</p>
                 </div>
                 
@@ -741,7 +576,7 @@
                 <div>
                     <h4 class="font-semibold mb-4" data-en="Contact" data-id="Kontak">Kontak</h4>
                     <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-phone mr-2"></i>+62 818 110 901</li>
+                        <li><i class="fas fa-phone mr-2"></i>+62 818 0411 0901</li>
                         <li><i class="fas fa-envelope mr-2"></i>info@jaecoo.co.id</li>
                         <li><i class="fas fa-map-marker-alt mr-2"></i>Jakarta, Indonesia</li>
                     </ul>
@@ -764,10 +599,10 @@
             </div>
             
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2024 JAECOO Indonesia. All rights reserved.</p>
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 JAECOO Indonesia. All rights reserved.</p>
                 <div class="flex space-x-6 text-sm text-gray-400">
-                    <a href="#" class="hover:text-white transition" data-en="Privacy Policy" data-id="Kebijakan Privasi">Kebijakan Privasi</a>
-                    <a href="#" class="hover:text-white transition" data-en="Terms of Service" data-id="Syarat Layanan">Syarat Layanan</a>
+                    <a href="privacy-policy.html" class="hover:text-white transition" data-en="Privacy Policy" data-id="Kebijakan Privasi">Kebijakan Privasi</a>
+                    <a href="terms-of-service.html" class="hover:text-white transition" data-en="Terms of Service" data-id="Syarat Layanan">Syarat Layanan</a>
                 </div>
             </div>
         </div>
@@ -859,10 +694,10 @@
                 return;
             }
 
-            const whatsappMessage = `Halo JAECOO Indonesia,\n\nSaya ingin memesan test drive untuk JAECOO 8.\n\nDetail:\n- Nama: ${name}\n- Email: ${email}\n- Telepon: ${phone}\n- Varian: ${variant}\n- Tanggal: ${date}\n- Pesan: ${message || '-'}\n\nTerima kasih.`;
+            const whatsappMessage = `Halo JAECOO Indonesia,\n\nSaya ingin memesan test drive untuk JAECOO J8.\n\nDetail:\n- Nama: ${name}\n- Email: ${email}\n- Telepon: ${phone}\n- Varian: ${variant}\n- Tanggal: ${date}\n- Pesan: ${message || '-'}\n\nTerima kasih.`;
 
             const encodedMessage = encodeURIComponent(whatsappMessage);
-            window.open(`https://wa.me/62818110901?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/6281804110901?text=${encodedMessage}`, '_blank');
         });
 
         // Intersection Observer for fade-in animations
@@ -880,6 +715,20 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+    </script>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 400);
+        });
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 

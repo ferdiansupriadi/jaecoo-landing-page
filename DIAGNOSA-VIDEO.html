@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DIAGNOSA VIDEO - SUPER DEBUG</title>
+    <style>
+        body { 
+            margin: 20px; 
+            background: #000; 
+            color: #0f0; 
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .box {
+            border: 2px solid #0f0;
+            padding: 20px;
+            margin: 20px 0;
+            background: #111;
+        }
+        h2 { color: #ff0; }
+        .error { color: #f00; }
+        .ok { color: #0f0; }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #0f0;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+        }
+        video {
+            border: 3px solid #f0f;
+            display: block;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔍 DIAGNOSA LENGKAP - APA YANG SALAH?</h1>
+
+<div class="box">
+    <h2>1. CEK FILE VIDEO ADA GAK?</h2>
+    <div id="filecheck"></div>
+</div>
+
+<div class="box">
+    <h2>2. CEK BROWSER SUPPORT</h2>
+    <div id="browsercheck"></div>
+</div>
+
+<div class="box">
+    <h2>3. TEST VIDEO EKSTERNAL (PASTI JALAN)</h2>
+    <video id="test1" controls width="400">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+    <button onclick="document.getElementById('test1').play()">▶ PLAY VIDEO EKSTERNAL</button>
+    <div id="test1status"></div>
+</div>
+
+<div class="box">
+    <h2>4. TEST VIDEO LOKAL (indexBanner_pc.mp4)</h2>
+    <video id="test2" controls width="400">
+        <source src="indexBanner_pc.mp4" type="video/mp4">
+    </video>
+    <button onclick="testLocalVideo()">▶ PLAY VIDEO LOKAL</button>
+    <div id="test2status"></div>
+</div>
+
+<div class="box">
+    <h2>5. CEK PATH FILE</h2>
+    <div id="pathcheck"></div>
+</div>
+
+<div class="box">
+    <h2>6. CONSOLE LOG</h2>
+    <div id="console" style="max-height: 300px; overflow-y: auto; background: #000; padding: 10px;"></div>
+</div>
+
+<script>
+    const log = (msg, color = '#0f0') => {
+        console.log(msg);
+        const div = document.getElementById('console');
+        div.innerHTML += `<div style="color:${color}">${new Date().toLocaleTimeString()}: ${msg}</div>`;
+        div.scrollTop = div.scrollHeight;
+    };
+
+    // 1. FILE CHECK
+    const filecheck = document.getElementById('filecheck');
+    fetch('indexBanner_pc.mp4', { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                filecheck.innerHTML = `<span class="ok">✓ File ditemukan!</span><br>`;
+                filecheck.innerHTML += `Size: ${response.headers.get('content-length')} bytes<br>`;
+                filecheck.innerHTML += `Type: ${response.headers.get('content-type')}<br>`;
+                log('✓ File indexBanner_pc.mp4 EXISTS');
+            } else {
+                filecheck.innerHTML = `<span class="error">✗ File TIDAK DITEMUKAN (${response.status})</span>`;
+                log('✗ File NOT FOUND - ' + response.status, '#f00');
+            }
+        })
+        .catch(err => {
+            filecheck.innerHTML = `<span class="error">✗ ERROR cek file: ${err.message}</span><br>`;
+            filecheck.innerHTML += `<span class="error">Kemungkinan: File tidak di folder yang sama, atau browser block file:// access</span>`;
+            log('✗ Fetch error: ' + err.message, '#f00');
+        });
+
+    // 2. BROWSER CHECK
+    const browsercheck = document.getElementById('browsercheck');
+    const video = document.createElement('video');
+    const canPlayMP4 = video.canPlayType('video/mp4');
+    const canPlayWebM = video.canPlayType('video/webm');
+    
+    browsercheck.innerHTML = `Browser: ${navigator.userAgent}<br>`;
+    browsercheck.innerHTML += `MP4 support: ${canPlayMP4 || 'NO'} ${canPlayMP4 ? '✓' : '✗'}<br>`;
+    browsercheck.innerHTML += `WebM support: ${canPlayWebM || 'NO'} ${canPlayWebM ? '✓' : '✗'}<br>`;
+    log(`Browser: ${navigator.userAgent.substring(0, 50)}...`);
+    log(`MP4: ${canPlayMP4 || 'NO'}, WebM: ${canPlayWebM || 'NO'}`);
+
+    // 3. TEST EKSTERNAL
+    const test1 = document.getElementById('test1');
+    const test1status = document.getElementById('test1status');
+    
+    test1.addEventListener('loadeddata', () => {
+        test1status.innerHTML = '<span class="ok">✓ Video eksternal LOADED - browser OK!</span>';
+        log('✓ External video LOADED');
+    });
+    test1.addEventListener('playing', () => {
+        test1status.innerHTML = '<span class="ok">✓✓✓ Video eksternal PLAYING - browser BISA play video!</span>';
+        log('✓✓✓ External video PLAYING');
+    });
+    test1.addEventListener('error', () => {
+        test1status.innerHTML = '<span class="error">✗ Video eksternal ERROR</span>';
+        log('✗ External video ERROR', '#f00');
+    });
+
+    // 4. TEST LOKAL
+    const test2 = document.getElementById('test2');
+    const test2status = document.getElementById('test2status');
+    
+    function testLocalVideo() {
+        test2status.innerHTML = '⏳ Testing...';
+        test2.muted = true;
+        test2.play()
+            .then(() => {
+                test2status.innerHTML = '<span class="ok">✓✓✓ VIDEO LOKAL JALAN! FILE OK!</span>';
+                log('✓✓✓ LOCAL VIDEO PLAYING - FILE IS GOOD!');
+            })
+            .catch(err => {
+                test2status.innerHTML = `<span class="error">✗ Play gagal: ${err.message}</span>`;
+                log('✗ Play failed: ' + err.message, '#f00');
+            });
+    }
+
+    test2.addEventListener('loadeddata', () => {
+        test2status.innerHTML = '<span class="ok">✓ File loaded: ' + test2.videoWidth + 'x' + test2.videoHeight + '</span>';
+        log('✓ Local video LOADED: ' + test2.videoWidth + 'x' + test2.videoHeight);
+    });
+    test2.addEventListener('error', () => {
+        const err = test2.error;
+        const errors = ['', 'ABORTED', 'NETWORK', 'DECODE', 'SRC_NOT_SUPPORTED'];
+        test2status.innerHTML = `<span class="error">✗ ERROR: ${errors[err.code]} (code ${err.code})</span>`;
+        log(`✗ Video error: ${errors[err.code]} (${err.code})`, '#f00');
+    });
+
+    // 5. PATH CHECK
+    const pathcheck = document.getElementById('pathcheck');
+    pathcheck.innerHTML = `Current page URL: ${window.location.href}<br>`;
+    pathcheck.innerHTML += `Video source: ${test2.querySelector('source').src}<br>`;
+    log('Page URL: ' + window.location.href);
+
+    // Auto test external video
+    setTimeout(() => {
+        log('Auto-testing external video...');
+        test1.play().catch(err => log('Auto play blocked: ' + err.message, '#ff0'));
+    }, 2000);
+</script>
+
+</body>
+</html>

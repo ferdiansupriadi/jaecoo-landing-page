@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Video Banner</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #000;
+            color: #fff;
+            font-family: sans-serif;
+        }
+        video {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+        .info {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #222;
+            border-radius: 8px;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            background: #333;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Test Video Banner JAECOO</h1>
+    
+    <div class="info">
+        <h2>Test WebM</h2>
+        <video id="video-webm" controls muted playsinline poster="banner1.webp">
+            <source src="indexBanner_pc.webm" type="video/webm">
+        </video>
+        <div class="status" id="status-webm">Loading...</div>
+        <button onclick="document.getElementById('video-webm').play()">▶ Play WebM</button>
+        <button onclick="document.getElementById('video-webm').pause()">⏸ Pause</button>
+    </div>
+
+    <div class="info">
+        <h2>Test MP4</h2>
+        <video id="video-mp4" controls muted playsinline poster="banner1.webp">
+            <source src="indexBanner_pc.mp4" type="video/mp4">
+        </video>
+        <div class="status" id="status-mp4">Loading...</div>
+        <button onclick="document.getElementById('video-mp4').play()">▶ Play MP4</button>
+        <button onclick="document.getElementById('video-mp4').pause()">⏸ Pause</button>
+    </div>
+
+    <div class="info">
+        <h2>Console Log</h2>
+        <div id="console" style="background: #111; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 12px; max-height: 300px; overflow-y: auto;"></div>
+    </div>
+
+    <script>
+        const log = (msg) => {
+            console.log(msg);
+            const div = document.getElementById('console');
+            div.innerHTML += `<div>${new Date().toLocaleTimeString()}: ${msg}</div>`;
+            div.scrollTop = div.scrollHeight;
+        };
+
+        function setupVideo(videoId, statusId, format) {
+            const video = document.getElementById(videoId);
+            const status = document.getElementById(statusId);
+            
+            video.addEventListener('loadstart', () => {
+                log(`${format}: loadstart - mulai load video`);
+                status.textContent = '⏳ Loading...';
+            });
+            
+            video.addEventListener('loadedmetadata', () => {
+                log(`${format}: loadedmetadata - ${video.videoWidth}x${video.videoHeight}, ${video.duration.toFixed(2)}s`);
+                status.textContent = `✓ Metadata loaded: ${video.videoWidth}x${video.videoHeight}, ${video.duration.toFixed(2)}s`;
+            });
+            
+            video.addEventListener('loadeddata', () => {
+                log(`${format}: loadeddata - frame pertama siap`);
+            });
+            
+            video.addEventListener('canplay', () => {
+                log(`${format}: canplay - bisa mulai diputar`);
+                status.textContent = '✓ Ready to play';
+            });
+            
+            video.addEventListener('canplaythrough', () => {
+                log(`${format}: canplaythrough - bisa diputar tanpa buffering`);
+            });
+            
+            video.addEventListener('play', () => {
+                log(`${format}: play - video mulai putar`);
+                status.textContent = '▶ Playing...';
+            });
+            
+            video.addEventListener('pause', () => {
+                log(`${format}: pause - video di-pause`);
+                status.textContent = '⏸ Paused';
+            });
+            
+            video.addEventListener('error', (e) => {
+                const error = video.error;
+                const errorMsg = error ? 
+                    `Code ${error.code}: ${['', 'ABORTED', 'NETWORK', 'DECODE', 'SRC_NOT_SUPPORTED'][error.code] || 'UNKNOWN'}` :
+                    'Unknown error';
+                log(`${format}: ERROR - ${errorMsg}`);
+                status.textContent = `❌ Error: ${errorMsg}`;
+                status.style.background = '#800';
+            });
+        }
+
+        setupVideo('video-webm', 'status-webm', 'WebM');
+        setupVideo('video-mp4', 'status-mp4', 'MP4');
+
+        log('Test page loaded');
+        log('Browser: ' + navigator.userAgent);
+    </script>
+</body>
+</html>

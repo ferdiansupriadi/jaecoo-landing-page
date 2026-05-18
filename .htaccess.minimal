@@ -1,0 +1,30 @@
+# ⚠️ ULTRA-MINIMAL .htaccess (FALLBACK)
+# Use this if .htaccess causes 500 error
+# Rename to .htaccess and test
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# Basic caching only
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 2 days"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+</IfModule>
+
+# Content types
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/avif .avif
+</IfModule>
+
+# Disable directory listing only
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>

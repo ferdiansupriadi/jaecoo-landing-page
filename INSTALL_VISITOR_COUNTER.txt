@@ -1,0 +1,101 @@
+backend/visitor-count.php - Server-side visitor counter
+
+<?php
+/**
+ * Server-side Visitor Counter
+ * Replaces external CountAPI service with a reliable, private solution
+ * 
+ * Installation:
+ * 1. Create /backend/ directory in root
+ * 2. Create /data/ directory in root
+ * 3. Copy this file to /backend/visitor-count.php
+ * 4. Update JavaScript to call this endpoint instead of CountAPI
+ * 
+ * Features:
+ * - Session-based counting (one count per visitor per day)
+ * - JSON response for easy AJAX integration
+ * - Error handling and logging
+ */
+
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Cache-Control: no-cache, no-store, must-revalidate');
+
+// Start session (if not already started)
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Define counter file path
+$counterFile = __DIR__ . '/../data/visitor_count.txt';
+$counterDir = __DIR__ . '/../data';
+
+try {
+    // Create data directory if it doesn't exist
+    if (!is_dir($counterDir)) {
+        if (!mkdir($counterDir, 0755, true)) {
+            throw new Exception('Failed to create data directory');
+        }
+    }
+    
+    // Create counter file if it doesn't exist
+    if (!file_exists($counterFile)) {
+        if (file_put_contents($counterFile, '0') === false) {
+            throw new Exception('Failed to create counter file');
+        }
+    }
+    
+    // Check if visitor has already been counted today
+    $sessionKey = 'visitor_counted_' . date('Y-m-d');
+    
+    if (!isset($_SESSION[$sessionKey])) {
+        // Lock file for thread-safe operation
+        $lockFile = $counterDir . '/counter.lock';
+        $fp = fopen($lockFile, 'w');
+        
+        if (flock($fp, LOCK_EX)) {
+            // Read current count
+            $currentCount = (int)file_get_contents($counterFile);
+            
+            // Increment count
+            $newCount = $currentCount + 1;
+            
+            // Write new count
+            if (file_put_contents($counterFile, $newCount) !== false) {
+                $_SESSION[$sessionKey] = true;
+                $count = $newCount;
+            } else {
+                throw new Exception('Failed to write counter file');
+            }
+            
+            flock($fp, LOCK_UN);
+        } else {
+            throw new Exception('Failed to acquire lock');
+        }
+        fclose($fp);
+    } else {
+        // Visitor already counted today, just read current count
+        $count = (int)file_get_contents($counterFile);
+    }
+    
+    // Return success response
+    echo json_encode([
+        'success' => true,
+        'value' => $count,
+        'timestamp' => time()
+    ]);
+    
+} catch (Exception $e) {
+    // Log error for debugging
+    error_log('Visitor Counter Error: ' . $e->getMessage());
+    
+    // Return error response with fallback value
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'value' => 0,
+        'error' => 'Counter service unavailable',
+        'timestamp' => time()
+    ]);
+}
+?>

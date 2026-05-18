@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Test</title>
+    <style>
+        body { margin: 0; background: #000; color: #0f0; font-family: monospace; }
+        #status { 
+            position: fixed; 
+            top: 10px; 
+            right: 10px; 
+            background: rgba(0,0,0,0.9); 
+            padding: 20px; 
+            border: 2px solid #0f0;
+            max-width: 400px;
+            font-size: 12px;
+            z-index: 1000;
+        }
+        .ok { color: #0f0; }
+        .error { color: #f00; }
+        .warning { color: #ff0; }
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            z-index: 2;
+        }
+        .content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding-top: 40vh;
+            color: white;
+            font-size: 48px;
+        }
+        button {
+            background: #0f0;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            color: #000;
+            font-weight: bold;
+        }
+        button:hover { background: #0ff; }
+    </style>
+</head>
+<body>
+    <div id="status">Loading...</div>
+    
+    <video id="hero-video" autoplay muted loop playsinline preload="auto" poster="banner1.webp">
+        <source src="indexBanner_pc.mp4" type="video/mp4">
+    </video>
+    
+    <div class="overlay"></div>
+    
+    <div class="content">
+        <h1>VIDEO TEST</h1>
+        <div>
+            <button onclick="forcePlay()">🎬 FORCE PLAY</button>
+            <button onclick="checkStatus()">🔍 CHECK STATUS</button>
+        </div>
+    </div>
+    
+    <script>
+        const status = document.getElementById('status');
+        const video = document.getElementById('hero-video');
+        let logs = [];
+        
+        function log(msg, type = 'ok') {
+            const timestamp = new Date().toLocaleTimeString();
+            logs.push(`<span class="${type}">[${timestamp}] ${msg}</span>`);
+            status.innerHTML = logs.slice(-15).join('<br>');
+            console.log(msg);
+        }
+        
+        // Initial check
+        log('Width: ' + window.innerWidth + 'px');
+        log('Video element: ' + (video ? 'Found ✓' : 'Not found ✗'), video ? 'ok' : 'error');
+        
+        if (video) {
+            log('Video src: ' + video.querySelector('source').src);
+            log('ReadyState: ' + video.readyState);
+            log('Paused: ' + video.paused);
+            log('Muted: ' + video.muted);
+            
+            // Events
+            video.addEventListener('loadstart', () => log('Event: loadstart'));
+            video.addEventListener('loadedmetadata', () => log('Event: loadedmetadata'));
+            video.addEventListener('loadeddata', () => log('Event: loadeddata'));
+            video.addEventListener('canplay', () => log('Event: canplay'));
+            video.addEventListener('canplaythrough', () => log('Event: canplaythrough'));
+            video.addEventListener('playing', () => log('Event: playing ✓', 'ok'));
+            video.addEventListener('pause', () => log('Event: pause', 'warning'));
+            video.addEventListener('error', (e) => log('Event: ERROR - ' + e.message, 'error'));
+            
+            // Try autoplay
+            setTimeout(() => {
+                if (video.paused) {
+                    log('Autoplay failed, trying manual play...', 'warning');
+                    forcePlay();
+                } else {
+                    log('Autoplay SUCCESS! ✓', 'ok');
+                }
+            }, 2000);
+        }
+        
+        function forcePlay() {
+            log('Force play attempt...', 'warning');
+            video.muted = true;
+            video.play()
+                .then(() => {
+                    log('✅ PLAY SUCCESS!', 'ok');
+                })
+                .catch(err => {
+                    log('❌ PLAY FAILED: ' + err.message, 'error');
+                });
+        }
+        
+        function checkStatus() {
+            log('=== STATUS CHECK ===', 'warning');
+            log('ReadyState: ' + video.readyState);
+            log('Paused: ' + video.paused);
+            log('CurrentTime: ' + video.currentTime.toFixed(2) + 's');
+            log('Duration: ' + video.duration.toFixed(2) + 's');
+            log('NetworkState: ' + video.networkState);
+        }
+    </script>
+</body>
+</html>

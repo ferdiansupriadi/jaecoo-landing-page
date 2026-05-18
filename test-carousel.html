@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Carousel</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000; color: #fff; }
+        
+        #home {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background: #111;
+        }
+        
+        /* Mobile Carousel */
+        .mobile-carousel {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        
+        /* Carousel indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background: #fff;
+            width: 24px;
+            border-radius: 4px;
+        }
+        
+        /* Video - desktop only */
+        .hero-video {
+            display: none;
+        }
+        
+        @media(min-width: 769px) {
+            .mobile-carousel {
+                display: none;
+            }
+            .hero-video {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 1;
+            }
+        }
+        
+        .gradient-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            z-index: 2;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="status" id="status">Loading...</div>
+    
+    <section id="home">
+        <!-- Mobile Carousel -->
+        <div id="mobile-carousel" class="mobile-carousel">
+            <div class="carousel-slide active" style="background-image:url('banner1.webp')"></div>
+            <div class="carousel-slide" style="background-image:url('banner2.webp')"></div>
+            <div class="carousel-slide" style="background-image:url('banner3.webp')"></div>
+            <div class="carousel-slide" style="background-image:url('banner4.webp')"></div>
+            
+            <div class="carousel-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+            </div>
+        </div>
+        
+        <!-- Video - desktop -->
+        <video id="hero-video" class="hero-video" autoplay muted loop playsinline>
+            <source src="indexBanner_pc.mp4" type="video/mp4">
+        </video>
+        
+        <div class="gradient-overlay"></div>
+        
+        <div class="content">
+            <h1>TEST CAROUSEL</h1>
+            <p id="mode">Checking...</p>
+        </div>
+    </section>
+    
+    <script>
+        const status = document.getElementById('status');
+        const mode = document.getElementById('mode');
+        const width = window.innerWidth;
+        
+        status.innerHTML = `Width: ${width}px<br>`;
+        
+        if (width <= 768) {
+            mode.textContent = 'MODE: MOBILE - Carousel should show';
+            status.innerHTML += 'Mode: MOBILE<br>';
+            
+            // Carousel init
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.indicator');
+            let currentSlide = 0;
+            
+            status.innerHTML += `Slides: ${slides.length}<br>`;
+            status.innerHTML += `Indicators: ${indicators.length}<br>`;
+            
+            function showSlide(index) {
+                slides.forEach(s => s.classList.remove('active'));
+                indicators.forEach(i => i.classList.remove('active'));
+                
+                slides[index].classList.add('active');
+                indicators[index].classList.add('active');
+                
+                status.innerHTML = `Width: ${width}px<br>Mode: MOBILE<br>Slide: ${index + 1}/4<br>`;
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Auto-switch
+            setInterval(nextSlide, 4000);
+            
+            // Manual control
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                });
+            });
+            
+            status.innerHTML += 'Carousel: ✓ Active';
+            
+        } else {
+            mode.textContent = 'MODE: DESKTOP - Video should play';
+            status.innerHTML += 'Mode: DESKTOP<br>';
+            
+            const video = document.getElementById('hero-video');
+            if (video) {
+                video.play()
+                    .then(() => {
+                        status.innerHTML += 'Video: ✓ Playing';
+                    })
+                    .catch(err => {
+                        status.innerHTML += 'Video: ✗ ' + err.message;
+                    });
+            }
+        }
+    </script>
+</body>
+</html>

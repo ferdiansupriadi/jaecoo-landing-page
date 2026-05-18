@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST VIDEO - ZERO COMPLEXITY</title>
+</head>
+<body style="margin:0;background:#000">
+    
+    <h1 style="color:#fff;text-align:center;padding:20px">
+        VIDEO TEST - LIHAT APA YANG TERJADI
+    </h1>
+
+    <div style="padding:20px">
+        <video 
+            id="v1" 
+            controls 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            style="width:100%;max-width:800px;display:block;margin:20px auto;border:3px solid red"
+        >
+            <source src="indexBanner_pc.webm" type="video/webm">
+            <source src="indexBanner_pc.mp4" type="video/mp4">
+            <p style="color:red">Browser tidak support video!</p>
+        </video>
+
+        <div id="info" style="color:#fff;padding:20px;background:#333;max-width:800px;margin:0 auto;font-family:monospace"></div>
+    </div>
+
+    <script>
+        const v = document.getElementById('v1');
+        const info = document.getElementById('info');
+        
+        function log(msg) {
+            console.log(msg);
+            info.innerHTML += msg + '<br>';
+        }
+
+        log('=== VIDEO TEST START ===');
+        log('Browser: ' + navigator.userAgent.substring(0, 50) + '...');
+        
+        // Event listeners
+        v.addEventListener('loadstart', () => log('✓ loadstart - browser mulai load'));
+        v.addEventListener('loadedmetadata', () => log('✓ loadedmetadata - ' + v.videoWidth + 'x' + v.videoHeight));
+        v.addEventListener('loadeddata', () => log('✓ loadeddata - frame pertama ready'));
+        v.addEventListener('canplay', () => log('✓ canplay - BISA DIPUTAR'));
+        v.addEventListener('playing', () => log('✓✓✓ PLAYING - VIDEO JALAN! ✓✓✓'));
+        v.addEventListener('error', () => {
+            log('❌❌❌ ERROR: ' + v.error.code);
+            log('Error detail: ' + ['','ABORTED','NETWORK','DECODE','SRC_NOT_SUPPORTED'][v.error.code]);
+        });
+
+        // Check sources
+        v.querySelectorAll('source').forEach(s => {
+            log('Source: ' + s.src + ' (type: ' + s.type + ')');
+        });
+
+        // Paksa play setelah 1 detik
+        setTimeout(() => {
+            log('--- Attempting force play ---');
+            v.muted = true;
+            v.play()
+                .then(() => log('✓✓✓ PLAY SUCCESS! ✓✓✓'))
+                .catch(e => log('❌ Play failed: ' + e.message));
+        }, 1000);
+
+        // Info tambahan
+        setTimeout(() => {
+            log('--- Status after 3 seconds ---');
+            log('paused: ' + v.paused);
+            log('currentTime: ' + v.currentTime);
+            log('duration: ' + v.duration);
+            log('readyState: ' + v.readyState);
+            log('networkState: ' + v.networkState);
+        }, 3000);
+    </script>
+
+</body>
+</html>

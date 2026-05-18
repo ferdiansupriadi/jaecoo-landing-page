@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Video Test Simple</title>
+    <style>
+        body { margin: 0; background: #000; }
+        video { width: 100vw; height: 100vh; object-fit: cover; }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop playsinline>
+        <source src="indexBanner_pc.webm" type="video/webm">
+        <source src="indexBanner_pc.mp4" type="video/mp4">
+    </video>
+    <script>
+        const v = document.querySelector('video');
+        v.play().then(() => alert('Video JALAN!')).catch(e => alert('Video ERROR: ' + e));
+    </script>
+</body>
+</html>

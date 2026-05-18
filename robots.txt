@@ -1,0 +1,35 @@
+# robots.txt for JAECOO Indonesia Website
+# Directs search engine crawlers to index the site properly
+
+# Allow all crawlers by default
+User-agent: *
+Allow: /
+
+# Disallow crawler access to sensitive areas (none currently)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots and scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Specify sitemap location
+Sitemap: https://omodajaecoojaksel.id/sitemap.xml

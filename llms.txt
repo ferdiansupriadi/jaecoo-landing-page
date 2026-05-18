@@ -1,0 +1,20 @@
+# JAECOO Indonesia Jakarta Selatan
+
+> Official Dealer Website for JAECOO Premium SUVs in South Jakarta. Provides comprehensive information on the JAECOO vehicle lineup, tech profiles, promo offers, dealership details, and direct contact options for test drives in Kuningan & Mampang.
+
+## Core Models
+- [JAECOO J5 EV](https://omodajaecoojaksel.id/J5EV.html): Features, distance specs (500+ km range), and design details of the Premium Electric SUV.
+- [JAECOO J7](https://omodajaecoojaksel.id/j7.html): Details of the Urban Premium SUV available in SHS (Super Hybrid System) and AWD (All-Wheel Drive).
+- [JAECOO J8](https://omodajaecoojaksel.id/j8.html): Specs, luxury interior details, and performance of the Premium Flagship SUV.
+
+## Technology & Engineering
+- [SHS & ARDIS Technology](https://omodajaecoojaksel.id/shs-ardis.html): Tech details on Chery's Super Hybrid System (SHS) and All Road Drive Intelligent System (ARDIS) for advanced off-roading.
+
+## Dealership & Services
+- [About Us](https://omodajaecoojaksel.id/about.html): Profile of our Kuningan & Mampang dealerships, staff list, client reviews, and rating breakdown.
+- [Services](https://omodajaecoojaksel.id/service.html): Official warranty details, service package offerings, and parts support information.
+- [Frequently Asked Questions](https://omodajaecoojaksel.id/faq.html): Frequently asked questions on ordering, test drives, financing, and JAECOO features.
+
+## Useful Resources
+- [Sitemap](https://omodajaecoojaksel.id/sitemap.xml): Complete map of pages on this website.
+- [Robots Configuration](https://omodajaecoojaksel.id/robots.txt): Search engine bot crawling instructions.

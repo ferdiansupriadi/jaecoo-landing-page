@@ -1,0 +1,49 @@
+# JAECOO .htaccess
+# Purpose: Fix .html extension, clean URLs, security + performance
+
+# Disable directory listing & content negotiation (prevents .html stripping)
+Options -Indexes -MultiViews
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect: if someone accesses /page (without .html) and file page.html exists, serve it
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L,QSA]
+
+# Custom error pages
+ErrorDocument 404 /index.html
+
+# Set proper MIME types
+AddType application/json .json
+AddType image/webp .webp
+AddType image/avif .avif
+AddType video/webm .webm
+AddType image/svg+xml .svg
+
+# Gzip compression (if available)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser caching (if available)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType text/css "access plus 30 days"
+    ExpiresByType text/javascript "access plus 30 days"
+    ExpiresByType application/javascript "access plus 30 days"
+    ExpiresDefault "access plus 7 days"
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "\.(env|config\.php|\.git)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
