@@ -7,7 +7,7 @@
     <!-- Meta Description -->
     <meta name="description" content="JAECOO J5 EV - SUV Listrik Revolusioner dengan jarak 490-550km, performa 6.2-7.3s (0-100km/h), teknologi AI canggih, fast charging. Rating 5 bintang dari 9287 reviews.">
     <meta name="keywords" content="JAECOO J5 EV, SUV Listrik, Mobil Listrik, Kendaraan Elektrik, Teknologi AI, Electric Vehicle">
-
+    
     <!-- Open Graph Tags -->
     <meta property="og:type" content="product">
     <meta property="og:title" content="JAECOO J5 EV - SUV Listrik Revolusioner">
@@ -16,7 +16,7 @@
     <meta property="og:image" content="https://omodajaecoojaksel.id/J5_EV.webp">
     <meta property="og:site_name" content="JAECOO Indonesia">
     <meta property="og:locale" content="id_ID">
-
+    
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@JAECOOIndonesia">
@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="JAECOO J5 EV - SUV Listrik dengan jarak 490-550km, teknologi AI canggih, fast charging 30 menit.">
     <meta name="twitter:image" content="https://omodajaecoojaksel.id/J5_EV.webp">
     <meta name="twitter:url" content="https://omodajaecoojaksel.id/J5EV">
-
+    
     <!-- Canonical URL -->
     <link rel="canonical" href="https://omodajaecoojaksel.id/J5EV.html">
     <link rel="preload" as="image" href="J5_EV.webp">
@@ -34,17 +34,268 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    
     <!-- Additional Meta Tags -->
     <meta name="author" content="JAECOO">
     <meta name="robots" content="index, follow">
     <meta name="language" content="id">
-
+    
     <meta name="google-site-verification" content="ZsR_V8ukC_VAZAE_t3sOilsAxsuieY0L-Y8M7UxQPI4" />
     <link rel="icon" type="image/webp" href="j.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: #000;
+        }
 
+        /* Hero Gradient - Green theme for EV */
+        .hero-gradient {
+            background: linear-gradient(135deg, #0d3d1f 0%, #051a0f 50%, #000 100%);
+        }
+
+        /* Navbar */
+        .nav-scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Language Switcher */
+        .lang-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn.active {
+            background: white;
+            color: black;
+        }
+        
+        .lang-btn:not(.active) {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+
+        .lang-btn:not(.active):hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Floating Contact Buttons */
+        .floating-contact {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .contact-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            filter: blur(10px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .phone-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .contact-btn i {
+            font-size: 26px;
+            color: white;
+        }
+
+        .contact-tooltip {
+            position: absolute;
+            right: 75px;
+            background: white;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .contact-btn:hover .contact-tooltip {
+            opacity: 1;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            border: 3px solid;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        .whatsapp-btn .pulse-ring { border-color: #25D366; }
+        .phone-btn .pulse-ring { border-color: #10b981; }
+
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Variant Cards */
+        .variant-card {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .variant-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+            z-index: 0;
+        }
+        
+        .variant-card:hover::before {
+            left: 100%;
+        }
+
+        .variant-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Comparison Table */
+        .comparison-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Price Badge */
+        .price-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Gallery */
+        .gallery-item {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .floating-contact {
+                right: 20px;
+                bottom: 20px;
+            }
+            .contact-btn {
+                width: 50px;
+                height: 50px;
+            }
+            .contact-btn i {
+                font-size: 22px;
+            }
+        }
+    </style>
+    
     <!-- Product Schema JSON-LD -->
     <script type="application/ld+json">
     {
@@ -90,7 +341,6 @@
         }
     }
     </script>
-    <link rel="stylesheet" href="styles-j5ev.css">
 </head>
 <body class="bg-black text-white">
 
@@ -172,7 +422,7 @@
             <div class="absolute top-0 left-0 w-96 h-96 bg-green-500 rounded-full filter blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
         </div>
-
+        
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-12 animate-fade-in">
                 <div class="inline-block bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold mb-6">
@@ -183,11 +433,11 @@
                 </h1>
                 <p class="text-2xl md:text-3xl text-gray-300 mb-8" data-en="Pure Electric Performance for a Sustainable Future" data-id="Performa Listrik Murni untuk Masa Depan Berkelanjutan">Performa Listrik Murni untuk Masa Depan Berkelanjutan</p>
             </div>
-
+            
             <div class="rounded-2xl overflow-hidden shadow-2xl mb-8">
                 <img src="J5_EV.webp" alt="JAECOO J5 EV" class="w-full h-auto object-cover">
             </div>
-
+            
             <div class="grid md:grid-cols-4 gap-6 text-center">
                 <div class="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10">
                     <i class="fas fa-bolt text-4xl mb-3 text-green-400"></i>
@@ -220,7 +470,7 @@
                 <h2 class="text-5xl font-bold mb-4" data-en="Choose Your Variant" data-id="Pilih Varian Anda">Pilih Varian Anda</h2>
                 <p class="text-xl text-gray-400" data-en="Three exceptional electric choices" data-id="Tiga pilihan listrik luar biasa">Tiga pilihan listrik luar biasa</p>
             </div>
-
+            
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Standard Variant -->
                 <div class="variant-card bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl overflow-hidden border border-gray-700">
@@ -230,11 +480,11 @@
                         </div>
                         <img src="J5_EV.webp" alt="JAECOO J5 EV Standard" class="w-full h-80 object-cover" loading="lazy">
                     </div>
-
+                    
                     <div class="p-8">
                         <h3 class="text-3xl font-bold mb-2">JAECOO J5 EV Standard</h3>
                         <p class="text-gray-400 mb-6" data-en="Entry-level electric performance" data-id="Performa listrik tingkat entry">Performa listrik tingkat entry</p>
-
+                        
                         <div class="space-y-3 mb-6">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400" data-en="Battery:" data-id="Baterai:">Baterai:</span>
@@ -253,7 +503,7 @@
                                 <span class="font-semibold text-green-400">7.3s</span>
                             </div>
                         </div>
-
+                        
                         <div class="highlight-box rounded-xl p-4 mb-6">
                             <div class="text-sm text-gray-400 mb-2" data-en="Key Features:" data-id="Fitur Utama:">Fitur Utama:</div>
                             <ul class="space-y-2 text-sm">
@@ -275,12 +525,12 @@
                                 </li>
                             </ul>
                         </div>
-
+                        
                         <div class="price-badge text-center py-4 rounded-xl mb-6">
                             <div class="text-sm opacity-90" data-en="Starting from" data-id="Mulai dari">Mulai dari</div>
                             <div class="text-4xl font-black">Rp 279,9 Juta</div>
                         </div>
-
+                        
                         <a href="#book-now" class="block text-center bg-gradient-to-r from-green-600 to-emerald-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl hover:shadow-green-500/50 transition-all" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
                     </div>
                 </div>
@@ -293,11 +543,11 @@
                         </div>
                         <img src="J5_EV.webp" alt="JAECOO J5 EV Premium" class="w-full h-80 object-cover" loading="lazy">
                     </div>
-
+                    
                     <div class="p-8">
                         <h3 class="text-3xl font-bold mb-2">JAECOO J5 EV Premium</h3>
                         <p class="text-gray-400 mb-6" data-en="Balanced range and performance" data-id="Keseimbangan jarak dan performa">Keseimbangan jarak dan performa</p>
-
+                        
                         <div class="space-y-3 mb-6">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400" data-en="Battery:" data-id="Baterai:">Baterai:</span>
@@ -316,7 +566,7 @@
                                 <span class="font-semibold text-blue-400">6.8s</span>
                             </div>
                         </div>
-
+                        
                         <div class="highlight-box rounded-xl p-4 mb-6">
                             <div class="text-sm text-gray-400 mb-2" data-en="Key Features:" data-id="Fitur Utama:">Fitur Utama:</div>
                             <ul class="space-y-2 text-sm">
@@ -338,12 +588,12 @@
                                 </li>
                             </ul>
                         </div>
-
+                        
                         <div class="price-badge text-center py-4 rounded-xl mb-6">
                             <div class="text-sm opacity-90" data-en="Starting from" data-id="Mulai dari">Mulai dari</div>
                             <div class="text-4xl font-black">Rp 309,9 Juta</div>
                         </div>
-
+                        
                         <a href="#book-now" class="block text-center bg-gradient-to-r from-blue-600 to-emerald-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl hover:shadow-blue-500/50 transition-all" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
                     </div>
                 </div>
@@ -356,11 +606,11 @@
                         </div>
                         <img src="J5_EV.webp" alt="JAECOO J5 EV Luxury" class="w-full h-80 object-cover" loading="lazy">
                     </div>
-
+                    
                     <div class="p-8">
                         <h3 class="text-3xl font-bold mb-2">JAECOO J5 EV Luxury</h3>
                         <p class="text-gray-400 mb-6" data-en="Ultimate range and advanced features" data-id="Jarak ultimate dan fitur canggih">Jarak ultimate dan fitur canggih</p>
-
+                        
                         <div class="space-y-3 mb-6">
                             <div class="flex items-center justify-between text-sm">
                                 <span class="text-gray-400" data-en="Battery:" data-id="Baterai:">Baterai:</span>
@@ -379,7 +629,7 @@
                                 <span class="font-semibold text-yellow-400">6.2s</span>
                             </div>
                         </div>
-
+                        
                         <div class="highlight-box rounded-xl p-4 mb-6">
                             <div class="text-sm text-gray-400 mb-2" data-en="Key Features:" data-id="Fitur Utama:">Fitur Utama:</div>
                             <ul class="space-y-2 text-sm">
@@ -401,12 +651,12 @@
                                 </li>
                             </ul>
                         </div>
-
+                        
                         <div class="price-badge text-center py-4 rounded-xl mb-6">
                             <div class="text-sm opacity-90" data-en="Starting from" data-id="Mulai dari">Mulai dari</div>
                             <div class="text-4xl font-black">Rp 349,9 Juta</div>
                         </div>
-
+                        
                         <a href="#book-now" class="block text-center bg-gradient-to-r from-yellow-600 to-emerald-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl hover:shadow-yellow-500/50 transition-all" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a>
                     </div>
                 </div>
@@ -421,7 +671,7 @@
                 <h2 class="text-5xl font-bold mb-4" data-en="Technical Specifications" data-id="Spesifikasi Teknis">Spesifikasi Teknis</h2>
                 <p class="text-xl text-gray-400" data-en="Detailed comparison of all variants" data-id="Perbandingan detail semua varian">Perbandingan detail semua varian</p>
             </div>
-
+            
             <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden border border-gray-800">
                 <div class="overflow-x-auto">
                     <table class="comparison-table w-full">
@@ -507,7 +757,7 @@
                 <h2 class="text-5xl font-bold mb-4" data-en="Advanced Features" data-id="Fitur Canggih">Fitur Canggih</h2>
                 <p class="text-xl text-gray-400" data-en="Cutting-edge technology for every journey" data-id="Teknologi terdepan untuk setiap perjalanan">Teknologi terdepan untuk setiap perjalanan</p>
             </div>
-
+            
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div class="feature-card bg-white/5 border border-white/10 rounded-2xl p-8">
                     <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
@@ -516,7 +766,7 @@
                     <h3 class="text-2xl font-bold mb-4" data-en="AI Assistant" data-id="Asisten AI">Asisten AI</h3>
                     <p class="text-gray-400" data-en="Intelligent voice control and personalized driving assistance" data-id="Kontrol suara cerdas dan bantuan mengemudi personal">Kontrol suara cerdas dan bantuan mengemudi personal</p>
                 </div>
-
+                
                 <div class="feature-card bg-white/5 border border-white/10 rounded-2xl p-8">
                     <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-bolt text-3xl"></i>
@@ -524,7 +774,7 @@
                     <h3 class="text-2xl font-bold mb-4" data-en="Fast Charging" data-id="Pengisian Cepat">Pengisian Cepat</h3>
                     <p class="text-gray-400" data-en="DC fast charging from 10% to 80% in just 28-32 minutes" data-id="Charging cepat DC dari 10% hingga 80% hanya dalam 28-32 menit">Charging cepat DC dari 10% hingga 80% hanya dalam 28-32 menit</p>
                 </div>
-
+                
                 <div class="feature-card bg-white/5 border border-white/10 rounded-2xl p-8">
                     <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-green-500 rounded-xl flex items-center justify-center mb-6">
                         <i class="fas fa-leaf text-3xl"></i>
@@ -567,7 +817,7 @@
                 <h2 class="text-5xl font-bold mb-4" data-en="Gallery" data-id="Galeri">Galeri</h2>
                 <p class="text-xl text-gray-400" data-en="Experience JAECOO J5 EV from every angle" data-id="Rasakan JAECOO J5 EV dari setiap sudut">Rasakan JAECOO J5 EV dari setiap sudut</p>
             </div>
-
+            
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="gallery-item">
                     <img src="J5_EV.webp" alt="JAECOO J5 EV Exterior" class="w-full h-64 object-cover rounded-2xl" loading="lazy">
@@ -695,13 +945,13 @@
                     <h2 class="text-5xl font-bold mb-4" data-en="Book Your Test Drive" data-id="Pesan Test Drive Anda">Pesan Test Drive Anda</h2>
                     <p class="text-xl text-gray-300" data-en="Experience the future of electric driving" data-id="Rasakan masa depan berkendara listrik">Rasakan masa depan berkendara listrik</p>
                 </div>
-
+                
                 <div id="booking-form" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <input id="field-name" type="text" placeholder="Nama Lengkap" class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500" data-en-placeholder="Full Name" data-id-placeholder="Nama Lengkap">
                         <input id="field-email" type="email" placeholder="Email" class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
-
+                    
                     <div class="grid md:grid-cols-2 gap-6">
                         <input id="field-phone" type="tel" placeholder="Nomor Telepon" class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500" data-en-placeholder="Phone Number" data-id-placeholder="Nomor Telepon">
                         <select id="field-variant" class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-green-500">
@@ -710,37 +960,15 @@
                             <option value="JAECOO J5 EV Premium">JAECOO J5 EV Premium</option>
                         </select>
                     </div>
-
+                    
                     <input id="field-date" type="date" class="w-full px-6 py-4 rounded-xl bg-gray-800 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-green-500">
-
+                    
                     <textarea id="field-message" placeholder="Pesan Tambahan (Opsional)" rows="4" class="w-full px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500" data-en-placeholder="Additional Message (Optional)" data-id-placeholder="Pesan Tambahan (Opsional)"></textarea>
-
+                    
                     <button id="submit-booking" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 text-white py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 transition-all flex items-center justify-center gap-3">
                         <i class="fas fa-paper-plane"></i>
                         <span data-en="Book Now via WhatsApp" data-id="Pesan Sekarang via WhatsApp">Pesan Sekarang via WhatsApp</span>
                     </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-12 bg-gray-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Tentang JAECOO J5 EV - SUV Listrik Revolusioner</h2>
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-4">SUV listrik terjangkau dengan karakter premium</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">JAECOO J5 EV hadir sebagai SUV listrik terjangkau pertama dari JAECOO yang benar-benar disusun untuk kebutuhan konsumen modern di Indonesia. Mobil ini menarik karena tidak hanya menawarkan desain futuristis dan aura premium, tetapi juga menghadirkan harga yang tetap realistis bagi calon pemilik mobil listrik pertama. Proporsi bodinya pas untuk penggunaan harian di perkotaan, namun tetap memberi rasa percaya diri khas SUV saat melewati jalan bergelombang, parkiran sempit, atau perjalanan keluarga ke luar kota. Kombinasi ini membuat J5 EV relevan bagi pengguna yang menginginkan mobil listrik yang nyaman, mudah digunakan, dan tetap terlihat berkelas.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Secara spesifikasi, JAECOO J5 EV membawa baterai 64,2 kWh dengan dua karakter pilihan yang sama-sama menarik. Varian Standard menawarkan jarak tempuh sekitar 490 km, sedangkan varian Premium mampu menjangkau hingga 550 km dalam kondisi pengujian yang ideal. Akselerasi 0-100 km/jam berada di kisaran 6,2 sampai 7,3 detik, cukup untuk memberi rasa spontan saat berakselerasi di jalan tol, menyalip kendaraan lain, atau keluar dari persimpangan dengan aman. Dengan data tersebut, J5 EV membuktikan bahwa SUV listrik tidak harus terasa lambat atau hanya cocok untuk perjalanan dekat.</p>
-                    <h3 class="text-2xl font-semibold text-white mb-4">Teknologi yang terasa nyata saat dipakai setiap hari</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">Nilai terbesar J5 EV tidak hanya ada di atas kertas, tetapi juga pada teknologi yang benar-benar membantu pengemudi. AI Assistant memudahkan pengaturan fungsi kendaraan secara lebih natural, sementara sistem ADAS dengan lebih dari 22 sensor memberi lapisan perlindungan aktif saat mobil digunakan di lalu lintas padat. Fitur seperti lane assist, adaptive cruise, pemantauan blind spot, serta peringatan tabrakan membuat pengalaman berkendara terasa lebih tenang, terutama untuk pengguna yang rutin menempuh rute Jakarta dan sekitarnya. Di sisi lain, dukungan fast charging DC 80 kW memungkinkan baterai diisi dengan lebih cepat, sehingga waktu tunggu menjadi lebih efisien ketika mobil dipakai dengan mobilitas tinggi.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Saat dibandingkan dengan kompetitor seperti BYD Atto 3 dan beberapa SUV listrik lain di kelas harga serupa, JAECOO J5 EV menawarkan nilai yang menonjol pada desain, nuansa kabin, dan paket fitur keseluruhan. Banyak calon pembeli tidak hanya mengejar angka jarak tempuh, tetapi juga mencari kenyamanan duduk, kualitas material interior, posisi berkendara, dan rasa premium saat pertama kali masuk ke kabin. Di titik inilah J5 EV tampil kuat. Karakternya terasa modern, fitur hiburannya lengkap, dan tampilannya lebih berani, sehingga cocok bagi konsumen yang ingin tampil berbeda tanpa mengorbankan fungsi praktis harian.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-4">Alasan cerdas memilih JAECOO J5 EV</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">Ada beberapa alasan kuat mengapa J5 EV menjadi opsi menarik di segmen SUV listrik. Pertama, kendaraan listrik jelas lebih ramah lingkungan karena tidak menghasilkan emisi gas buang saat digunakan. Kedua, biaya operasionalnya lebih hemat dibanding mobil berbahan bakar konvensional karena ongkos pengisian daya dan perawatan rutin umumnya lebih efisien. Ketiga, J5 EV memberikan pengalaman berkendara yang halus, senyap, dan responsif, sehingga cocok untuk komuter harian, keluarga muda, maupun profesional yang ingin kendaraan dengan citra maju. Ditambah lagi, kehadiran fitur pintar membuat mobil ini terasa selaras dengan kebutuhan gaya hidup digital saat ini.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Proses pembelian di dealer JAECOO Jakarta Selatan juga dibuat sederhana. Calon konsumen dapat memulai dengan konsultasi produk dan test drive gratis untuk membandingkan langsung varian Standard serta Premium. Setelah menentukan pilihan, tim dealer membantu simulasi pembiayaan, pengajuan kredit, hingga proses KPP agar transaksi berjalan lebih efisien. Tahap akhir berupa penjadwalan pengiriman unit dan penjelasan penggunaan fitur kendaraan dilakukan dengan pendampingan yang jelas, sehingga pembeli baru tidak merasa bingung ketika mulai memakai mobil listrik untuk aktivitas sehari-hari.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Untuk pasar OTR Jakarta, JAECOO J5 EV Standard ditawarkan mulai Rp 279,9 juta, sedangkan JAECOO J5 EV Premium mulai Rp 309,9 juta. Dengan rentang harga tersebut, J5 EV menjadi salah satu pintu masuk paling menarik ke dunia SUV listrik premium. Anda memperoleh desain modern, performa gesit, jarak tempuh panjang, teknologi keselamatan mutakhir, dan kemudahan after-sales dalam satu paket yang rasional. Bagi konsumen yang ingin beralih ke kendaraan listrik tanpa kompromi berlebihan, JAECOO J5 EV layak masuk daftar teratas untuk segera dicoba langsung.</p>
                 </div>
             </div>
         </div>
@@ -754,7 +982,7 @@
                     <img src="jaecoo1.webp" alt="JAECOO Logo" class="h-8 mb-4" loading="lazy">
                     <p class="text-gray-400" data-en="Pure Electric SUV Technology" data-id="Teknologi SUV Listrik Murni">Teknologi SUV Listrik Murni</p>
                 </div>
-
+                
                 <div>
                     <h4 class="font-semibold mb-4" data-en="Quick Links" data-id="Link Cepat">Link Cepat</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -764,7 +992,7 @@
                         <li><a href="#book-now" class="hover:text-white transition" data-en="Book Test Drive" data-id="Pesan Test Drive">Pesan Test Drive</a></li>
                     </ul>
                 </div>
-
+                
                 <div>
                     <h4 class="font-semibold mb-4" data-en="Contact" data-id="Kontak">Kontak</h4>
                     <ul class="space-y-2 text-gray-400">
@@ -773,7 +1001,7 @@
                         <li><i class="fas fa-map-marker-alt mr-2"></i>Jakarta, Indonesia</li>
                     </ul>
                 </div>
-
+                
                 <div>
                     <h4 class="font-semibold mb-4" data-en="Follow Us" data-id="Ikuti Kami">Ikuti Kami</h4>
                     <div class="flex space-x-4">
@@ -789,7 +1017,7 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2026 JAECOO Indonesia. All rights reserved.</p>
                 <div class="flex space-x-6 text-sm text-gray-400">
@@ -801,7 +1029,115 @@
     </footer>
 
     <!-- Scripts -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
 
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        closeMenu.addEventListener('click', () => mobileMenu.classList.remove('active'));
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        });
+
+        // Language switching
+        let currentLang = 'id';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            document.querySelectorAll('[data-en], [data-id]').forEach(el => {
+                if (el.dataset[lang]) {
+                    el.textContent = el.dataset[lang];
+                }
+            });
+
+            document.querySelectorAll('[data-en-placeholder], [data-id-placeholder]').forEach(el => {
+                const key = lang === 'en' ? 'enPlaceholder' : 'idPlaceholder';
+                if (el.dataset[key]) {
+                    el.placeholder = el.dataset[key];
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.id === `lang-${lang}` || btn.id === `mobile-lang-${lang}`) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Update floating contact tooltips
+            const phoneTooltip = document.querySelector('.phone-btn .contact-tooltip');
+            if (phoneTooltip) phoneTooltip.textContent = lang === 'en' ? 'Call Us' : 'Hubungi Kami';
+        }
+
+        document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('lang-id').addEventListener('click', () => switchLanguage('id'));
+        document.getElementById('mobile-lang-en').addEventListener('click', () => switchLanguage('en'));
+        document.getElementById('mobile-lang-id').addEventListener('click', () => switchLanguage('id'));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Booking form submission via WhatsApp
+        document.getElementById('submit-booking').addEventListener('click', () => {
+            const name    = document.getElementById('field-name').value.trim();
+            const email   = document.getElementById('field-email').value.trim();
+            const phone   = document.getElementById('field-phone').value.trim();
+            const variant = document.getElementById('field-variant').value;
+            const date    = document.getElementById('field-date').value;
+            const message = document.getElementById('field-message').value.trim();
+
+            if (!name || !phone || !variant || !date) {
+                alert(currentLang === 'en' ? 'Please fill in all required fields.' : 'Harap isi semua kolom yang wajib diisi.');
+                return;
+            }
+
+            const whatsappMessage = `Halo JAECOO Indonesia,\n\nSaya ingin memesan test drive untuk JAECOO J5 EV.\n\nDetail:\n- Nama: ${name}\n- Email: ${email}\n- Telepon: ${phone}\n- Varian: ${variant}\n- Tanggal: ${date}\n- Pesan: ${message || '-'}\n\nTerima kasih.`;
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            window.open(`https://wa.me/6281804110901?text=${encodedMessage}`, '_blank');
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.variant-card, .feature-card, .gallery-item, section > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+    
     <!-- Back to Top Button -->
     <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
         <i class="fas fa-arrow-up"></i>
@@ -809,6 +1145,14 @@
 
     <!-- Load Main Scripts -->
     <script src="scripts-index.js" defer></script>
-    <script src="scripts-j5ev.js" defer></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            document.getElementById('back-to-top').classList.toggle('visible', window.scrollY > 400);
+        });
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
 </body>
 </html>

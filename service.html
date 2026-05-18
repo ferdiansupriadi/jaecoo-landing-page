@@ -49,16 +49,16 @@
         "review": [
             {
                 "@type": "Review",
-                "headline": "Servis JAECOO Profesional dan Memuaskan",
-                "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
+                "name": "Servis JAECOO Profesional dan Memuaskan",
+                "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
                 "author": { "@type": "Person", "name": "Rina Kusuma" },
                 "reviewBody": "Servis JAECOO sangat memuaskan! Teknisi profesional, penanganan cepat, dan hasil kerja berkualitas. Sangat direkomendasikan untuk pemilik JAECOO di Jakarta.",
                 "datePublished": "2026-03-10"
             },
             {
                 "@type": "Review",
-                "headline": "After-Sales JAECOO Terbaik, Booking Mudah via WhatsApp",
-                "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5, "worstRating": 1 },
+                "name": "After-Sales JAECOO Terbaik, Booking Mudah via WhatsApp",
+                "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 },
                 "author": { "@type": "Person", "name": "Hendra Gunawan" },
                 "reviewBody": "After-sales JAECOO luar biasa! Booking mudah lewat WhatsApp, servis tepat waktu, dan staf sangat ramah membantu. Pelayanan terbaik yang pernah saya rasakan.",
                 "datePublished": "2026-02-25"
@@ -75,7 +75,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="styles-index.css">
-    <link rel="stylesheet" href="styles-service.css">
+    <style>
+        .lang-btn.active { background: white; color: black; }
+        .lang-btn:not(.active) { background: transparent; color: white; border: 1px solid white; }
+        .lang-btn:not(.active):hover { background: rgba(255,255,255,0.1); }
+        .nav-scrolled { background: rgba(0,0,0,0.95) !important; backdrop-filter: blur(10px); }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        .service-card:hover { border-color: #6b7280; transform: translateY(-2px); }
+        .service-card { transition: all 0.3s ease; }
+    </style>
 </head>
 <body class="bg-black text-white scroll-smooth">
 
@@ -244,28 +253,6 @@
         </div>
     </section>
 
-    <section class="py-12 bg-gray-950">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Layanan After-Sales JAECOO Jakarta Selatan</h2>
-            <div class="grid lg:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-4">Perawatan berkala dan penanganan teknologi modern</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">Layanan after-sales JAECOO Jakarta Selatan dirancang untuk memastikan setiap unit tetap berada dalam kondisi prima jauh setelah proses pembelian selesai. Untuk model mesin konvensional dan hybrid, servis berkala dilakukan secara terjadwal dengan pemeriksaan oli, filter, rem, kaki-kaki, sistem pendingin, dan komponen vital lainnya sesuai interval penggunaan. Bagi pemilik kendaraan elektrifikasi seperti JAECOO J5 EV, perhatian juga diberikan pada kesehatan baterai, sistem thermal management, konektor pengisian, serta pembaruan software agar performa mobil tetap optimal dari waktu ke waktu.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Khusus kendaraan yang sudah dibekali ADAS, proses perawatan tidak hanya berhenti pada servis mekanis biasa. Bengkel dan tim teknis memahami pentingnya kalibrasi kamera, radar, serta sensor agar fitur keselamatan aktif bekerja secara akurat setelah servis tertentu, pergantian komponen, atau kejadian ringan yang memengaruhi alignment sistem. Dengan pendekatan ini, pelanggan tidak sekadar mendapat mobil yang terasa enak dikendarai, tetapi juga kendaraan yang tetap aman karena fitur bantu berkendaranya terjaga akurasinya.</p>
-                    <h3 class="text-2xl font-semibold text-white mb-4">Booking servis mudah dan komunikasi cepat</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">Proses booking servis di JAECOO Jakarta Selatan dibuat sesederhana mungkin melalui WhatsApp, sehingga pelanggan tidak perlu melalui alur yang rumit. Anda cukup mengirim nama, model kendaraan, kilometer, keluhan, serta waktu kunjungan yang diinginkan. Setelah itu, tim service advisor akan membantu mengatur jadwal, mengonfirmasi estimasi pekerjaan, dan memberikan arahan dokumen atau informasi yang perlu dipersiapkan sebelum datang. Model komunikasi yang cepat ini sangat membantu pemilik kendaraan yang memiliki jadwal padat dan membutuhkan kepastian waktu pengerjaan.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Selain booking berkala, saluran WhatsApp juga memudahkan konsultasi awal bila muncul pertanyaan seputar lampu indikator, pengisian daya EV, suara abnormal, atau kebutuhan pengecekan sebelum perjalanan jauh. Dengan respons yang cepat, banyak persoalan kecil bisa teridentifikasi lebih awal sehingga risiko kerusakan lebih besar dapat diminimalkan. Pendekatan proaktif seperti ini merupakan bagian penting dari layanan premium yang diharapkan pelanggan JAECOO.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-4">Suku cadang resmi, teknisi bersertifikat, dan garansi servis</h3>
-                    <p class="text-gray-300 leading-relaxed mb-4">Agar kualitas perawatan tetap konsisten, JAECOO Jakarta Selatan mengutamakan penggunaan suku cadang resmi sesuai standar pabrikan. Ketersediaan parts genuine sangat penting karena komponen modern pada mobil premium, hybrid, maupun EV membutuhkan spesifikasi yang presisi. Penggunaan parts resmi membantu menjaga performa kendaraan, mengurangi risiko ketidakcocokan, dan mempertahankan nilai kendaraan dalam jangka panjang. Bagi pelanggan, hal ini memberikan kepastian bahwa perawatan yang dilakukan memang mengikuti standar yang benar, bukan sekadar solusi sementara.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Pekerjaan teknis ditangani oleh teknisi bersertifikat JAECOO yang memahami karakter masing-masing model, mulai dari J5 EV hingga J7 dan J8. Kompetensi ini penting karena mobil dengan sistem elektrifikasi, fitur ADAS, dan modul elektronik canggih memerlukan prosedur diagnosis yang berbeda dibanding kendaraan biasa. Dengan teknisi yang terlatih, proses pemeriksaan menjadi lebih akurat, rekomendasi perbaikan lebih tepat, dan waktu pengerjaan bisa lebih efisien.</p>
-                    <p class="text-gray-300 leading-relaxed mb-4">Untuk memberi rasa tenang yang lebih besar, layanan purna jual juga didukung garansi servis sesuai jenis pekerjaan dan ketentuan bengkel resmi. Artinya, pelanggan tidak hanya menerima hasil kerja, tetapi juga perlindungan bila diperlukan tindak lanjut setelah servis. Inilah alasan mengapa after-sales JAECOO Jakarta Selatan menjadi bagian penting dari pengalaman kepemilikan: mobil terawat, teknologi tetap berfungsi optimal, dan pelanggan tahu bahwa selalu ada tim profesional yang siap membantu kapan pun dibutuhkan.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer class="bg-gray-900 py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
@@ -308,6 +295,25 @@
     </footer>
 
     <script src="scripts-index.js" defer></script>
-    <script src="scripts-service.js" defer></script>
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('nav-scrolled', window.scrollY > 50); });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('active')));
+        let currentLang = 'id';
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en],[data-id]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.id === `lang-${lang}` || btn.id === `mobile-lang-${lang}`));
+        }
+        ['lang-en','lang-id','mobile-lang-en','mobile-lang-id'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('click', () => switchLanguage(id.includes('en') ? 'en' : 'id'));
+        });
+    </script>
 </body>
 </html>

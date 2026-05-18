@@ -112,7 +112,18 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="styles-index.css">
-    <link rel="stylesheet" href="styles-faq.css">
+    <style>
+        .lang-btn.active { background: white; color: black; }
+        .lang-btn:not(.active) { background: transparent; color: white; border: 1px solid white; }
+        .lang-btn:not(.active):hover { background: rgba(255,255,255,0.1); }
+        .nav-scrolled { background: rgba(0,0,0,0.95) !important; backdrop-filter: blur(10px); }
+        .mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+        .mobile-menu.active { transform: translateX(0); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+        .faq-answer.open { max-height: 500px; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+    </style>
 </head>
 <body class="bg-black text-white scroll-smooth">
 
@@ -289,74 +300,6 @@
                 </div>
             </div>
 
-            <!-- Category: Pertanyaan Tambahan -->
-            <h2 class="text-2xl font-bold mb-6 text-yellow-400 flex items-center gap-3"><i class="fas fa-circle-question"></i> Pertanyaan Tambahan Populer</h2>
-            <div class="space-y-3 mb-12">
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Apakah ada test drive gratis JAECOO di Jakarta Selatan?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">Ya, JAECOO Jakarta Selatan menyediakan test drive gratis untuk model J5 EV, J7, dan J8 sesuai ketersediaan unit. Anda cukup booking jadwal melalui WhatsApp, lalu tim kami akan membantu memilih model, jam kunjungan, dan rute test drive yang paling nyaman. Saat datang, sebaiknya bawa SIM A dan identitas agar proses registrasi bisa berlangsung lebih cepat.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Berapa down payment (DP) minimum untuk kredit JAECOO?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">DP minimum kredit JAECOO umumnya mulai sekitar 20% dari harga kendaraan, tetapi angka final tetap mengikuti kebijakan leasing, profil kredit, tenor, dan varian yang dipilih. Tim sales kami bisa membantu membuat simulasi beberapa skema sekaligus agar Anda bisa membandingkan cicilan ringan, tenor yang sesuai, dan program promo yang sedang berjalan dari bank atau leasing partner.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Apakah JAECOO J5 EV bisa dicharge di rumah?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">Bisa. JAECOO J5 EV dapat diisi menggunakan home charger di rumah, sehingga pemilik bisa mengisi daya semalaman dengan lebih praktis. Tim dealer biasanya akan membantu menjelaskan kebutuhan instalasi listrik, posisi wall charger, serta estimasi waktu pengisian sesuai daya rumah Anda. Selain itu, J5 EV juga tetap mendukung pengisian di SPKLU umum untuk kebutuhan perjalanan jarak lebih jauh.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Berapa lama proses indent JAECOO J5 EV Premium?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">Estimasi indent JAECOO J5 EV Premium biasanya berkisar antara satu hingga tiga bulan, tergantung warna, kuota distribusi, dan jadwal kedatangan unit. Pada periode promo atau permintaan tinggi, waktu tunggu bisa berubah. Karena itu, tim dealer akan memberikan update berkala mengenai status unit, proses administrasi, sampai perkiraan pengiriman agar Anda bisa merencanakan pembelian dengan lebih tenang.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Apa saja keunggulan teknologi ADAS JAECOO?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">Teknologi ADAS JAECOO membantu pengemudi melalui fitur seperti lane keeping assist, blind spot monitoring, adaptive cruise control, automatic emergency braking, sampai kamera 360 derajat pada model tertentu. Keunggulannya bukan hanya pada kecanggihan, tetapi pada manfaat nyata: berkendara terasa lebih aman, potensi human error berkurang, dan kelelahan saat menghadapi lalu lintas padat atau perjalanan jauh juga ikut menurun.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Bagaimana cara booking test drive JAECOO?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">Cara booking test drive sangat mudah. Anda bisa menghubungi nomor WhatsApp dealer, menelepon langsung, atau mengisi form yang tersedia di website. Cukup informasikan nama, model yang ingin dicoba, tanggal kunjungan, serta area domisili bila membutuhkan bantuan penjadwalan. Setelah itu tim kami akan mengonfirmasi slot yang tersedia dan menyiapkan unit sesuai kebutuhan Anda.</p>
-                    </div>
-                </div>
-                <div class="faq-item bg-gray-900 rounded-xl border border-gray-800 overflow-hidden">
-                    <button class="faq-trigger w-full p-6 text-left flex items-center justify-between hover:bg-gray-800 transition">
-                        <span class="font-semibold text-lg pr-4">Apakah JAECOO punya garansi resmi di Indonesia?</span>
-                        <i class="fas fa-plus faq-icon flex-shrink-0 text-gray-400"></i>
-                    </button>
-                    <div class="faq-answer px-6">
-                        <p class="text-gray-400 pb-6">Ya, JAECOO memiliki garansi resmi di Indonesia untuk memberikan rasa aman selama masa kepemilikan. Secara umum, kendaraan mendapat garansi pabrikan 5 tahun atau 100.000 km, sedangkan JAECOO J5 EV juga dilengkapi garansi baterai hingga 8 tahun atau 160.000 km sesuai ketentuan. Detail cakupan garansi dapat dijelaskan langsung oleh tim dealer saat konsultasi atau pembelian.</p>
-                    </div>
-                </div>
-            </div>
-
             <!-- Still have questions -->
             <div class="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-10 text-center border border-gray-700">
                 <h3 class="text-2xl font-bold mb-4" data-en="Still have questions?" data-id="Masih ada pertanyaan?">Masih ada pertanyaan?</h3>
@@ -408,6 +351,43 @@
     </footer>
 
     <script src="scripts-index.js" defer></script>
-    <script src="scripts-faq.js" defer></script>
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('nav-scrolled', window.scrollY > 50); });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+        if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('active')));
+
+        // FAQ accordion
+        document.querySelectorAll('.faq-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const answer = item.querySelector('.faq-answer');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(el => {
+                    el.classList.remove('open');
+                    el.querySelector('.faq-answer').classList.remove('open');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    answer.classList.add('open');
+                }
+            });
+        });
+
+        let currentLang = 'id';
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-en],[data-id]').forEach(el => { if (el.dataset[lang]) el.textContent = el.dataset[lang]; });
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.id === `lang-${lang}` || btn.id === `mobile-lang-${lang}`));
+        }
+        ['lang-en','lang-id','mobile-lang-en','mobile-lang-id'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('click', () => switchLanguage(id.includes('en') ? 'en' : 'id'));
+        });
+    </script>
 </body>
 </html>
