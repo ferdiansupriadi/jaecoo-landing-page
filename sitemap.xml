@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://omodajaecoojaksel.id/</loc>
-        <lastmod>2026-05-17</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://omodajaecoojaksel.id/banner1.webp</image:loc>
@@ -12,7 +12,7 @@
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/J5EV.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -22,7 +22,7 @@
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/j7.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -32,7 +32,7 @@
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/j8.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -42,55 +42,55 @@
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/shs-ardis.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-j5ev-launch.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-j8-muri-record.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-hybrid-tips.html</loc>
-        <lastmod>2026-03-15</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-j7-comparison.html</loc>
-        <lastmod>2026-03-10</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-ev-jakarta.html</loc>
-        <lastmod>2026-03-08</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-test-drive.html</loc>
-        <lastmod>2026-03-05</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-ardis-tech.html</loc>
-        <lastmod>2026-02-28</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-j5ev-no1.html</loc>
-        <lastmod>2026-05-17</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <image:image>
@@ -100,13 +100,19 @@
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/story-promo-2026.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://omodajaecoojaksel.id/story-j5-vs-byd-atto3.html</loc>
+        <lastmod>2026-05-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://omodajaecoojaksel.id/story-dealer-jakarta-selatan.html</loc>
-        <lastmod>2026-05-18</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -116,19 +122,19 @@
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/about.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/service.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://omodajaecoojaksel.id/faq.html</loc>
-        <lastmod>2026-03-22</lastmod>
+        <lastmod>2026-05-22</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>

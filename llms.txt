@@ -1,19 +1,32 @@
 # JAECOO Indonesia Jakarta Selatan
 
-> Official Dealer Website for JAECOO Premium SUVs in South Jakarta. Provides comprehensive information on the JAECOO vehicle lineup, tech profiles, promo offers, dealership details, and direct contact options for test drives in Kuningan & Mampang.
+> Official Dealer Website for JAECOO Premium SUVs in South Jakarta (Jakarta Selatan). Located at JAECOO City Store, Lotte Mall Kuningan. Provides comprehensive information on the JAECOO vehicle lineup, tech profiles, promo offers, dealership details, and direct contact options for test drives.
 
 ## Core Models
-- [JAECOO J5 EV](https://omodajaecoojaksel.id/J5EV.html): Features, distance specs (500+ km range), and design details of the Premium Electric SUV.
-- [JAECOO J7](https://omodajaecoojaksel.id/j7.html): Details of the Urban Premium SUV available in SHS (Super Hybrid System) and AWD (All-Wheel Drive).
-- [JAECOO J8](https://omodajaecoojaksel.id/j8.html): Specs, luxury interior details, and performance of the Premium Flagship SUV.
+- [JAECOO J5 EV](https://omodajaecoojaksel.id/J5EV.html): Features, distance specs (500+ km range), and design details of the Premium Electric SUV. Available at dealer JAECOO Jakarta Selatan.
+- [JAECOO J7](https://omodajaecoojaksel.id/j7.html): Details of the Urban Premium SUV available in SHS (Super Hybrid System) and AWD (All-Wheel Drive). Test drive at JAECOO Jakarta Selatan.
+- [JAECOO J8](https://omodajaecoojaksel.id/j8.html): Specs, luxury interior details, and performance of the Premium Flagship SUV. Available at dealer JAECOO Jakarta Selatan.
 
 ## Technology & Engineering
 - [SHS & ARDIS Technology](https://omodajaecoojaksel.id/shs-ardis.html): Tech details on Chery's Super Hybrid System (SHS) and All Road Drive Intelligent System (ARDIS) for advanced off-roading.
 
 ## Dealership & Services
-- [About Us](https://omodajaecoojaksel.id/about.html): Profile of our Kuningan & Mampang dealerships, staff list, client reviews, and rating breakdown.
-- [Services](https://omodajaecoojaksel.id/service.html): Official warranty details, service package offerings, and parts support information.
-- [Frequently Asked Questions](https://omodajaecoojaksel.id/faq.html): Frequently asked questions on ordering, test drives, financing, and JAECOO features.
+- [Dealer JAECOO Jakarta Selatan](https://omodajaecoojaksel.id/story-dealer-jakarta-selatan.html): Complete guide to visiting the JAECOO showroom at Lotte Mall Kuningan, Jakarta Selatan.
+- [About Us](https://omodajaecoojaksel.id/about.html): Profile of the JAECOO Jakarta Selatan dealership at Kuningan, staff list, client reviews, and rating breakdown.
+- [Services](https://omodajaecoojaksel.id/service.html): Official warranty details, service package offerings, and parts support information at dealer Jakarta Selatan.
+- [Frequently Asked Questions](https://omodajaecoojaksel.id/faq.html): Frequently asked questions on ordering, test drives, financing, and JAECOO features at Jakarta Selatan showroom.
+
+## Stories & Articles
+- [Test Drive JAECOO Jakarta Selatan](https://omodajaecoojaksel.id/story-test-drive.html): Guide to booking and taking a test drive at the JAECOO Jakarta Selatan showroom.
+- [Promo JAECOO 2026](https://omodajaecoojaksel.id/story-promo-2026.html): Latest promotions, cicilan simulasi, and kredit offers for JAECOO vehicles in Jakarta Selatan.
+- [JAECOO J5 EV No. 1](https://omodajaecoojaksel.id/story-j5ev-no1.html): Why JAECOO J5 EV is ranked the No. 1 electric SUV choice in Indonesia.
+- [JAECOO J5 EV Launch](https://omodajaecoojaksel.id/story-j5ev-launch.html): Coverage of the JAECOO J5 EV launch event in Indonesia.
+- [JAECOO J5 vs BYD Atto 3](https://omodajaecoojaksel.id/story-j5-vs-byd-atto3.html): Detailed comparison between JAECOO J5 and BYD Atto 3 for buyers in Jakarta Selatan.
+- [JAECOO J7 Comparison](https://omodajaecoojaksel.id/story-j7-comparison.html): JAECOO J7 vs competitor SUVs — performance, features, and value.
+- [JAECOO J8 MURI Record](https://omodajaecoojaksel.id/story-j8-muri-record.html): JAECOO J8 SHS ARDIS sets an official MURI record for hybrid SUV efficiency.
+- [Mobil Listrik di Jakarta](https://omodajaecoojaksel.id/story-ev-jakarta.html): Why choosing an electric vehicle in Jakarta makes sense — cost savings, ganjil-genap exemption, and charging infrastructure.
+- [Tips Perawatan Hybrid SHS](https://omodajaecoojaksel.id/story-hybrid-tips.html): Tips for maintaining JAECOO SHS hybrid vehicles serviced at Jakarta Selatan.
+- [Teknologi ARDIS JAECOO](https://omodajaecoojaksel.id/story-ardis-tech.html): Deep dive into the ARDIS 4WD intelligent system.
 
 ## Useful Resources
 - [Sitemap](https://omodajaecoojaksel.id/sitemap.xml): Complete map of pages on this website.
