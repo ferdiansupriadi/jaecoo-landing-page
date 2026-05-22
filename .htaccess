@@ -7,6 +7,10 @@ Options -Indexes -MultiViews
 # Enable URL rewriting
 RewriteEngine On
 
+# Force HTTPS (required for HSTS)
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # Redirect: if someone accesses /page (without .html) and file page.html exists, serve it
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -46,4 +50,9 @@ AddType image/svg+xml .svg
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# HTTP Strict Transport Security (HSTS)
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
 
