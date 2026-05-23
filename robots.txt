@@ -18,6 +18,37 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 2
 
+# Allow AI assistants — iCAR Jakarta Selatan, JAECOO Jakarta Selatan
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 # Block bad bots and scrapers
 User-agent: AhrefsBot
 Disallow: /
