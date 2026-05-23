@@ -1,0 +1,18 @@
+const navbar=document.getElementById("navbar");
+window.addEventListener("scroll",()=>{window.scrollY>100?navbar.classList.add("nav-scrolled"):navbar.classList.remove("nav-scrolled")});
+const mobileMenuBtn=document.getElementById("mobile-menu-btn"),mobileMenu=document.getElementById("mobile-menu"),closeMenu=document.getElementById("close-menu");
+mobileMenuBtn.addEventListener("click",()=>mobileMenu.classList.add("active"));
+closeMenu.addEventListener("click",()=>mobileMenu.classList.remove("active"));
+mobileMenu.querySelectorAll("a").forEach(e=>{e.addEventListener("click",()=>mobileMenu.classList.remove("active"))});
+let currentLang="id";
+function switchLanguage(e){currentLang=e;document.querySelectorAll("[data-en], [data-id]").forEach(t=>{t.dataset[e]&&(t.textContent=t.dataset[e])});document.querySelectorAll("[data-en-placeholder], [data-id-placeholder]").forEach(t=>{const n="en"===e?"enPlaceholder":"idPlaceholder";t.dataset[n]&&(t.placeholder=t.dataset[n])});document.querySelectorAll(".lang-btn").forEach(t=>{t.id===`lang-${e}`||t.id===`mobile-lang-${e}`?t.classList.add("active"):t.classList.remove("active")});const t=document.querySelector(".phone-btn .contact-tooltip");t&&(t.textContent="en"===e?"Call Us":"Hubungi Kami")}
+document.getElementById("lang-en").addEventListener("click",()=>switchLanguage("en"));
+document.getElementById("lang-id").addEventListener("click",()=>switchLanguage("id"));
+document.getElementById("mobile-lang-en").addEventListener("click",()=>switchLanguage("en"));
+document.getElementById("mobile-lang-id").addEventListener("click",()=>switchLanguage("id"));
+document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();const t=document.querySelector(this.getAttribute("href"));t&&t.scrollIntoView({behavior:"smooth",block:"start"})})});
+document.getElementById("submit-booking").addEventListener("click",()=>{const e=document.getElementById("field-name").value.trim(),t=document.getElementById("field-email").value.trim(),n=document.getElementById("field-phone").value.trim(),a=document.getElementById("field-variant").value,l=document.getElementById("field-date").value,o=document.getElementById("field-message").value.trim();if(!(e&&n&&a&&l))return void alert("en"===currentLang?"Please fill in all required fields.":"Harap isi semua kolom yang wajib diisi.");const i=encodeURIComponent(`Halo iCAR Jakarta Selatan,\n\nSaya ingin memesan test drive untuk iCAR V23.\n\nDetail:\n- Nama: ${e}\n- Email: ${t}\n- Telepon: ${n}\n- Varian: ${a}\n- Tanggal: ${l}\n- Pesan: ${o||"-"}\n\nTerima kasih.`);window.open(`https://wa.me/6281804110901?text=${i}`,"_blank")});
+const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.style.opacity="1",e.target.style.transform="translateY(0)")})},{threshold:.1,rootMargin:"0px 0px -100px 0px"});
+document.querySelectorAll(".variant-card, .feature-card, .gallery-item, section > div").forEach(e=>{e.style.opacity="0";e.style.transform="translateY(20px)";e.style.transition="opacity 0.6s ease, transform 0.6s ease";observer.observe(e)});
+window.addEventListener("scroll",()=>{document.getElementById("back-to-top").classList.toggle("visible",window.scrollY>400)});
+document.getElementById("back-to-top").addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});
