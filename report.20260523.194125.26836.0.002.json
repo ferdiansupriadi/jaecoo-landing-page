@@ -1,0 +1,150 @@
+
+{
+  "header": {
+    "reportVersion": 5,
+    "event": "Entering the V8 API without proper locking in place",
+    "trigger": "FatalError",
+    "filename": "report.20260523.194125.26836.0.002.json",
+    "dumpEventTime": "2026-05-23T19:41:25Z",
+    "dumpEventTimeStamp": "1779540085709",
+    "processId": 26836,
+    "threadId": null,
+    "cwd": "C:\\Users\\DELL\\OneDrive\\Documents\\jaecoo",
+    "commandLine": [
+      "C:\\Users\\DELL\\AppData\\Local\\nvm\\v24.14.0\\node_modules\\@github\\copilot\\node_modules\\@github\\copilot-win32-x64\\copilot.exe",
+      "--no-warnings",
+      "--report-on-fatalerror",
+      "--optimize-for-size",
+      "--expose-gc",
+      "--no-maglev",
+      "--no-sparkplug",
+      "C:\\Users\\DELL\\AppData\\Local\\nvm\\v24.14.0\\node_modules\\@github\\copilot\\node_modules\\@github\\copilot-win32-x64\\copilot.exe"
+    ],
+    "nodejsVersion": "v24.15.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "acorn": "8.16.0",
+      "ada": "3.4.4",
+      "amaro": "1.1.8",
+      "ares": "1.34.6",
+      "brotli": "1.2.0",
+      "cldr": "48.0",
+      "icu": "78.2",
+      "llhttp": "9.3.1",
+      "merve": "1.2.2",
+      "modules": "137",
+      "napi": "10",
+      "nbytes": "0.1.3",
+      "ncrypto": "0.0.1",
+      "nghttp2": "1.68.0",
+      "node": "24.15.0",
+      "openssl": "3.5.5",
+      "simdjson": "4.5.0",
+      "simdutf": "6.4.0",
+      "sqlite": "3.51.3",
+      "tz": "2026a",
+      "undici": "7.24.4",
+      "unicode": "17.0",
+      "uv": "1.51.0",
+      "uvwasi": "0.0.23",
+      "v8": "13.6.233.17-node.48",
+      "zlib": "1.3.1-e00f703",
+      "zstd": "1.5.7"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Krypton",
+      "headersUrl": "https://nodejs.org/download/release/v24.15.0/node-v24.15.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v24.15.0/node-v24.15.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v24.15.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.26200",
+    "osVersion": "Windows 11 Home",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1620156,
+        "nice": 0,
+        "sys": 2140265,
+        "idle": 170608718,
+        "irq": 352859
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1058890,
+        "nice": 0,
+        "sys": 818359,
+        "idle": 172491828,
+        "irq": 88359
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 2305437,
+        "nice": 0,
+        "sys": 1490171,
+        "idle": 170573468,
+        "irq": 102203
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1050218,
+        "nice": 0,
+        "sys": 618218,
+        "idle": 172700640,
+        "irq": 45187
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1759375,
+        "nice": 0,
+        "sys": 1171265,
+        "idle": 171438437,
+        "irq": 81796
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1121515,
+        "nice": 0,
+        "sys": 757781,
+        "idle": 172489781,
+        "irq": 59984
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1694609,
+        "nice": 0,
+        "sys": 1123218,
+        "idle": 171551250,
+        "irq": 83750
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1077500,
+        "nice": 0,
+        "sys": 673796,
+        "idle": 172617781,
+        "irq": 49843
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz",
+        "speed": 2592,
+        "user": 1562171,
+        "nice": 0,
+        "sys": 1076109,
+        "idle": 171730796,
+        "irq": 77343
+      },
+      {
+ 
