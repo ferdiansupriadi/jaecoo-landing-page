@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -48,6 +48,8 @@
             "name": "JAECOO & iCAR Jakarta Selatan",
             "url": "https://omodajaecoojaksel.id",
             "logo": {"@type": "ImageObject", "url": "https://omodajaecoojaksel.id/jaecoo1.webp"},
+            "image": "https://omodajaecoojaksel.id/v23.webp",
+            "priceRange": "Rp 279.900.000 - Rp 789.000.000",
             "telephone": "+6281804110901",
             "email": "ferdiansupriadi@gmail.com",
             "address": {
@@ -112,7 +114,22 @@
             "logo": {"@type": "ImageObject", "url": "https://omodajaecoojaksel.id/jaecoo1.webp"}
         },
         "mainEntityOfPage": {"@type": "WebPage", "@id": "https://omodajaecoojaksel.id/story-icar-v23-launch.html"},
-        "about": {"@type": "Car", "name": "iCAR V23", "brand": {"@type": "Brand", "name": "iCAR"}, "offers": {"@type": "Offer", "price": "389900000", "priceCurrency": "IDR", "availability": "https://schema.org/InStock", "itemCondition": "https://schema.org/NewCondition"}},
+        "about": {
+            "@type": "Car",
+            "name": "iCAR V23",
+            "brand": {"@type": "Brand", "name": "iCAR"},
+            "offers": {
+                "@type": "Offer",
+                "price": 389900000,
+                "priceCurrency": "IDR",
+                "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "seller": {
+                    "@type": "AutomotiveBusiness",
+                    "@id": "https://omodajaecoojaksel.id"
+                }
+            }
+        },
         "keywords": "iCAR V23, iCAR Jakarta, peluncuran iCAR V23, SUV listrik retro, harga iCAR V23"
     }
     </script>
@@ -125,6 +142,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="styles-press-release.css">
     <link rel="icon" type="image/webp" href="j.jpg">
+
+    <!-- Business Rating Schema for Google Rich Results -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AutomotiveBusiness",
+        "name": "JAECOO Indonesia Jakarta Selatan",
+        "@id": "https://omodajaecoojaksel.id",
+        "url": "https://omodajaecoojaksel.id",
+        "image": "https://omodajaecoojaksel.id/jaecoo1.webp",
+        "telephone": "+6281804110901",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Prof. DR. Satrio No.Kav.3, Karet Kuningan",
+            "addressLocality": "Jakarta Selatan",
+            "addressRegion": "DKI Jakarta",
+            "postalCode": "12940",
+            "addressCountry": "ID"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
 </head>
 <body class="bg-black text-white" style="font-family:'Inter',sans-serif">
 
