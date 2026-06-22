@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "minify": "node minify.js"
+    "minify": "node minify.js",
+    "test:e2e": "npx playwright test"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3",
